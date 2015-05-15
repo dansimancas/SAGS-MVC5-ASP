@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Guardian.cs" />
     <Compile Include="MedicalHistory.cs" />
+    <Compile Include="Scouter.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

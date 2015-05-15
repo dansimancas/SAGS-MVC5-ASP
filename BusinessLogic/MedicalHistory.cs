@@ -47,5 +47,39 @@ namespace BusinessLogic
         }
 
         #endregion
+
+        #region Methods
+
+        public void addDisease(string disease)
+        {
+            this.diseases.Add(disease);
+        }
+
+        public void addMedicineIntolerance(string medicine)
+        {
+            this.medicineIntolerances.Add(medicine);
+        }
+
+        public void addAllergie(string allergie)
+        {
+            this.allergies.Add(allergie);
+        }
+
+        public void addMedicalIntervention(string intervention)
+        {
+            this.medicalInterventions.Add(intervention);
+        }
+
+        public void setObservations(string obs)
+        {
+            this.observations = obs;
+        }
+
+        public void addObservations(string obs)
+        {
+            this.observations += " " + obs;
+        }
+
+        #endregion
     }
 }

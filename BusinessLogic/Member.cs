@@ -17,7 +17,7 @@ namespace BusinessLogic
         public long Telephone { get; set; }
         public long Identification { get; set; }
         public long DocumentType { get; set; }
-        public List<Member> Guardians { get; set; }
+        public List<string> GuardiansId { get; set; }
         public string MedicalHistoryId { get; set; }
 
     }
