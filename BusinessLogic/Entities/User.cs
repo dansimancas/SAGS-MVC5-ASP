@@ -20,11 +20,11 @@ namespace BusinessLogic
 
         #region Properties
 
-        public int Id { get; }
+        public int Id { get; set; }
         public string Role { get; set; }
         public int MemberId { get; set; }
         public string Email { get; set; }
-        public string Password { set; }
+        public string Password { set; get; }
 
         #endregion
 
@@ -53,7 +53,7 @@ namespace BusinessLogic
         {
             return "\nUser:\nId: " + this.id +
                 "\nRole: " + this.role +
-                "\nMember Id: " + this.memberId +
+                "\nInterfaceMember Id: " + this.memberId +
                 "\nEmail: " + this.email;
         }
 

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class Guardian : Member
+    public class Guardian : InterfaceMember
     {
         #region Atributes
+
+        //TODO Agregar atributos propios de los guardianes.
 
         private string id;
         private string name;
@@ -19,8 +21,6 @@ namespace BusinessLogic
         private long telephone;
         private long identification;
         private long documentType;
-        private List<string> guardiansId;
-        private string medicalHistoryId = null;
 
         #endregion
 
@@ -71,33 +71,10 @@ namespace BusinessLogic
             get { return documentType; }
             set { documentType = value; }
         }
-        public List<string> GuardiansId
-        {
-            get { return guardiansId; }
-            set { guardiansId = value; }
-        }
-        public string MedicalHistoryId
-        {
-            get { return medicalHistoryId; }
-            set { medicalHistoryId = value; }
-        }
 
         #endregion
 
         #region Constructors
-
-        public Guardian(string id, string name, string lastname, string gender, string address, string city, long tel, long doc, List<string> guard)
-        {
-            this.id = id;
-            this.name = name;
-            this.lastname = lastname;
-            this.gender = gender;
-            this.address = address;
-            this.city = city;
-            this.telephone = tel;
-            this.documentType = doc;
-            this.guardiansId = guard;
-        }
 
         public Guardian(string id, string name, string lastname, string gender, string address, string city, long tel, long doc)
         {
@@ -109,15 +86,6 @@ namespace BusinessLogic
             this.city = city;
             this.telephone = tel;
             this.documentType = doc;
-        }
-
-        #endregion
-
-        #region Methods
-        
-        public void addGuardian(string guardianId)
-        {
-            this.guardiansId.Add(guardianId);
         }
 
         #endregion

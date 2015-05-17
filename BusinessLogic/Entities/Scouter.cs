@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class Scouter : Member
+    public class Scouter : InterfaceMember
+
     {
         #region Atributes
 
@@ -21,6 +22,32 @@ namespace BusinessLogic
         private long documentType;
         private List<string> guardiansId;
         private string medicalHistoryId;
+
+        //Education and work experience
+
+        public struct Education
+        {
+            string level; //highschool, undergraduate, graduate
+            string type; // classic, comercial, technical, technologic, professional, specialization, master, doctorate
+            string obtainedTitle;
+            string institution;
+            int year;
+            string city;
+
+            public Education(string l, string t, string o, string i, int y, string c)
+            {
+                level = l;
+                type = t;
+                obtainedTitle = o;
+                institution = i;
+                year = y;
+                city = c;
+            }
+        }
+
+        private Education scouterEducation;
+
+        private string workExperience;
 
         #endregion
 
@@ -86,6 +113,20 @@ namespace BusinessLogic
 
         #region Constructors
 
+        public Scouter() 
+        {
+            this.id = "";
+            this.name = "";
+            this.lastname = "";
+            this.gender = "";
+            this.address = "";
+            this.city = "";
+            this.telephone = 0;
+            this.identification = 1234;
+            this.documentType = 0;
+
+        }
+
         public Scouter(string id, string name, string lastname, string gender, string address, string city, long tel, long doc, List<string> guard, string med)
         {
             this.id = id;
@@ -120,6 +161,26 @@ namespace BusinessLogic
         public void addGuardian(string guardianId)
         {
             this.guardiansId.Add(guardianId);
+        }
+
+        public Education getEducation()
+        {
+
+            return scouterEducation;
+
+        }
+        public void setEducation(string level, string type, string obtainedTitle, string institution, int year, string city)
+        {
+            Education temp = new Education(level, type, obtainedTitle, institution, year, city);
+        }
+
+        public string getWorkExperience()
+        {
+            return workExperience;
+        }
+        public void setWorkExperience(string ex)
+        {
+            workExperience += ex;
         }
 
         #endregion
