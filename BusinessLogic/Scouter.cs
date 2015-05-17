@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class Scouter : Member
-
+    public class Scouter : Member
     {
         #region Atributes
 

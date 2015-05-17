@@ -8,15 +8,15 @@ namespace BusinessLogic
 {
     interface Member
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Lastname { get; set; }
-        public string Gender { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public long Telephone { get; set; }
-        public long Identification { get; set; }
-        public long DocumentType { get; set; }
+        string Id { get; set; }
+        string Name { get; set; }
+        string Lastname { get; set; }
+        string Gender { get; set; }
+        string Address { get; set; }
+        string City { get; set; }
+        long Telephone { get; set; }
+        long Identification { get; set; }
+        long DocumentType { get; set; }
 
     }
 }

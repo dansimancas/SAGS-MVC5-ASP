@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class Guardian : Member
+    public class Guardian : Member
     {
         #region Atributes
 

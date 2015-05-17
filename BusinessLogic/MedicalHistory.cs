@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class MedicalHistory
+    public class MedicalHistory
     {
         #region Atributes
 
