@@ -16,9 +16,9 @@ namespace BusinessLogic
         private string gender;
         private string address;
         private string city;
-        private long telephone;
+        private List<long> telephones;
+        private string documentTypeID;
         private long identification;
-        private long documentType;
 
         #endregion
 
@@ -27,7 +27,6 @@ namespace BusinessLogic
         public string Id
         {
             get { return id; }
-            set { id = value; }
         }
         public string Name
         {
@@ -54,38 +53,49 @@ namespace BusinessLogic
             get { return city; }
             set { city = value; }
         }
-        public long Telephone
-        {
-            get { return telephone; }
-            set { telephone = value; }
-        }
+    
         public long Identification
         {
             get { return identification; }
             set { identification = value; }
         }
-        public long DocumentType
+
+        public List<long> Telephones
         {
-            get { return documentType; }
-            set { documentType = value; }
+            get { return telephones; }
+            set { telephones = value; }
+        }
+
+        public string DocumentTypeID
+        {
+            get { return documentTypeID; }
+            set { documentTypeID = value; }
         }
 
         #endregion
 
         #region Constructors
 
-        public Teen(string id, string name, string lastname, string gender, string address, string city, long tel, long doc)
+        public Teen()
         {
-            this.id = id;
+            this.id = Guid.NewGuid().ToString();
+        }
+
+        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, string doc)
+        {
+            this.id = Guid.NewGuid().ToString();
             this.name = name;
             this.lastname = lastname;
             this.gender = gender;
             this.address = address;
             this.city = city;
-            this.telephone = tel;
-            this.documentType = doc;
+            this.telephones = tels;
+            this.documentTypeID = doc;
         }
 
         #endregion
+
+
+        
     }
 }
