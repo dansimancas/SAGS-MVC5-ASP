@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\DocumentType.cs" />
     <Compile Include="Entities\Guardian.cs" />
     <Compile Include="Entities\MedicalHistory.cs" />
     <Compile Include="Entities\Scouter.cs" />
