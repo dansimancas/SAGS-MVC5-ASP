@@ -5,20 +5,21 @@ using System.Text;
 
 namespace BusinessLogic
 {
-    class DocumentType
+    public class DocumentType
     {
         #region Atributes
-
-        private string id;
+        
+        private int id;
         private string name;
    
         #endregion
 
         #region Properties
 
-        public string Id
+        public int Id
         {
             get { return id; }
+            set { id = value; }
         }
 
         public string Name
@@ -33,14 +34,10 @@ namespace BusinessLogic
 
         public DocumentType()
         {
-            this.id = Guid.NewGuid().ToString();
-        }
 
-        public DocumentType(string name)
-        {
-            this.id = Guid.NewGuid().ToString();
-            this.name = name;
-        }
+            this.id = 0;
+            this.name = "";
+        }        
 
         #endregion
     }
