@@ -47,7 +47,7 @@ namespace SAGS.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] DocumentType documentType)
+        public ActionResult Create([Bind(Include = "Id,Name,Val")] DocumentType documentType)
         {
             if (ModelState.IsValid)
             {

@@ -163,6 +163,7 @@
     <Compile Include="Controllers\DocumentsTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ScoutGroupsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +236,11 @@
     <Content Include="Views\DocumentsTypes\Details.cshtml" />
     <Content Include="Views\DocumentsTypes\Edit.cshtml" />
     <Content Include="Views\DocumentsTypes\Index.cshtml" />
+    <Content Include="Views\ScoutGroups\Create.cshtml" />
+    <Content Include="Views\ScoutGroups\Delete.cshtml" />
+    <Content Include="Views\ScoutGroups\Details.cshtml" />
+    <Content Include="Views\ScoutGroups\Edit.cshtml" />
+    <Content Include="Views\ScoutGroups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

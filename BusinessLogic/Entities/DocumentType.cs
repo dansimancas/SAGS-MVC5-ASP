@@ -8,9 +8,9 @@ namespace BusinessLogic
     public class DocumentType
     {
         #region Atributes
-        
         private int id;
         private string name;
+        private static int val = 0;
    
         #endregion
 
@@ -28,16 +28,26 @@ namespace BusinessLogic
             set { name = value; }
         }
 
+        public int Val
+        {
+            get { return val; }
+        }
+
         #endregion
 
         #region Constructors
 
         public DocumentType()
         {
-
-            this.id = 0;
+            this.id = ++val;
             this.name = "";
-        }        
+        }
+
+        public DocumentType(string name)
+        {
+            this.id = ++val;
+            this.name = name;
+        }
 
         #endregion
     }

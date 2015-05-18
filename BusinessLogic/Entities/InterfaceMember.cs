@@ -11,16 +11,23 @@ namespace BusinessLogic
 
         #region Properties
 
-        string Id { get; }
+        int Id { get; }
         string Name { get; set; }
         string Lastname { get; set; }
         string Gender { get; set; }
         string Address { get; set; }
         string City { get; set; }
         List<long> Telephones { get; set; }
-        string DocumentTypeID { get; set; }
+        int DocumentTypeID { get; set; }
         long Identification { get; set; }
 
+        #endregion
+
+        #region Methods
+
+        void addTelephone(long t);
+        string printTelephones(List<long> l);
+        
         #endregion
     }
 }
