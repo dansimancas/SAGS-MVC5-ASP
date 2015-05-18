@@ -8,11 +8,6 @@ namespace BusinessLogic
     public class DocumentType
     {
         #region Atributes
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> origin/master
         private int id;
         private string name;
         private static int val = 0;
@@ -39,8 +34,8 @@ namespace BusinessLogic
 
         public DocumentType()
         {
-<<<<<<< HEAD
             this.id = ++val;
+            this.name = "";
         }
 
         public DocumentType(string name)
@@ -48,12 +43,6 @@ namespace BusinessLogic
             this.id = ++val;
             this.name = name;
         }
-=======
-
-            this.id = 0;
-            this.name = "";
-        }        
->>>>>>> origin/master
 
         #endregion
     }
