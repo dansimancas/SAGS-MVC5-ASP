@@ -9,14 +9,15 @@ namespace BusinessLogic
     {
         #region Atributes
 
-        private string id;
+        private int id;
         private string name;
+        private static int val = 0;
    
         #endregion
 
         #region Properties
 
-        public string Id
+        public int Id
         {
             get { return id; }
         }
@@ -33,12 +34,12 @@ namespace BusinessLogic
 
         public DocumentType()
         {
-            this.id = Guid.NewGuid().ToString();
+            this.id = ++val;
         }
 
         public DocumentType(string name)
         {
-            this.id = Guid.NewGuid().ToString();
+            this.id = ++val;
             this.name = name;
         }
 

@@ -11,17 +11,18 @@ namespace BusinessLogic
     {
         #region Atributes
 
-        private string id;
+        private int id;
         private string name;
         private string lastname;
         private string gender;
         private string address;
         private string city;
-        private long telephone;
-        private long identification;
-        private long documentType;
+        private List<long> telephones;
+        private int documentTypeID;
+        private long identification;        
         private List<string> guardiansId;
-        private string medicalHistoryId;
+        private int medicalHistoryId;
+        private static int val = 0;
 
         //Education and work experience
 
@@ -46,17 +47,15 @@ namespace BusinessLogic
         }
 
         private Education scouterEducation;
-
         private string workExperience;
 
         #endregion
 
         #region Properties
 
-        public string Id
+        public int Id
         {
             get { return id; }
-            set { id = value; }
         }
         public string Name
         {
@@ -83,30 +82,40 @@ namespace BusinessLogic
             get { return city; }
             set { city = value; }
         }
-        public long Telephone
+        public List<string> GuardiansId
         {
-            get { return telephone; }
-            set { telephone = value; }
+            get { return guardiansId; }
+            set { guardiansId = value; }
+        }
+        public int MedicalHistoryId
+        {
+            get { return medicalHistoryId; }
+            set { medicalHistoryId = value; }
+        }
+        public List<long> Telephones
+        {
+            get { return telephones; }
+            set { telephones = value; }
         }
         public long Identification
         {
             get { return identification; }
             set { identification = value; }
         }
-        public long DocumentType
+        public int DocumentTypeID
         {
-            get { return documentType; }
-            set { documentType = value; }
+            get { return documentTypeID; }
+            set { documentTypeID = value; }
         }
-        public List<string> GuardiansId
+        public Education ScouterEducation
         {
-            get { return guardiansId; }
-            set { guardiansId = value; }
+            get { return scouterEducation; }
+            set { scouterEducation = value; }
         }
-        public string MedicalHistoryId
+        public string WorkExperience
         {
-            get { return medicalHistoryId; }
-            set { medicalHistoryId = value; }
+            get { return workExperience; }
+            set { workExperience = value; }
         }
 
         #endregion
@@ -115,43 +124,50 @@ namespace BusinessLogic
 
         public Scouter() 
         {
-            this.id = "";
-            this.name = "";
-            this.lastname = "";
-            this.gender = "";
-            this.address = "";
-            this.city = "";
-            this.telephone = 0;
+            this.id = ++val;
+            this.name = "Ángel";
+            this.lastname = "Jiménez";
+            this.gender = "Male";
+            this.address = "Ternera";
+            this.city = "Cartagena";
+            this.telephones = null;
             this.identification = 1234;
-            this.documentType = 0;
-
+            this.documentTypeID = 1;
+            this.scouterEducation = new Education();
+            this.workExperience = "Programmer";
         }
 
-        public Scouter(string id, string name, string lastname, string gender, string address, string city, long tel, long doc, List<string> guard, string med)
+        //Constructor with all atributes
+        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, List<string> guard, int med, Education education, string exp)
         {
-            this.id = id;
+            this.id = ++val;
             this.name = name;
             this.lastname = lastname;
             this.gender = gender;
             this.address = address;
             this.city = city;
-            this.telephone = tel;
-            this.documentType = doc;
+            this.telephones = tel;
+            this.documentTypeID = doc;
             this.guardiansId = guard;
             this.medicalHistoryId = med;
+            this.scouterEducation = education;
+            this.workExperience = exp;
         }
 
-        public Scouter(string id, string name, string lastname, string gender, string address, string city, long tel, long doc, string med)
+        //Constructor without elaborated or composed atributes
+        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, int med)
         {
-            this.id = id;
+            this.id = ++val;
             this.name = name;
             this.lastname = lastname;
             this.gender = gender;
             this.address = address;
             this.city = city;
-            this.telephone = tel;
-            this.documentType = doc;
+            this.telephones = tel;
+            this.documentTypeID = doc;
+            this.guardiansId = new List<string>();
             this.medicalHistoryId = med;
+            this.scouterEducation = new Education();
         }
 
         #endregion
@@ -163,26 +179,32 @@ namespace BusinessLogic
             this.guardiansId.Add(guardianId);
         }
 
-        public Education getEducation()
-        {
-
-            return scouterEducation;
-
-        }
         public void setEducation(string level, string type, string obtainedTitle, string institution, int year, string city)
         {
             Education temp = new Education(level, type, obtainedTitle, institution, year, city);
         }
 
-        public string getWorkExperience()
+        public void addWorkExperience(string ex)
         {
-            return workExperience;
+            WorkExperience += ex;
         }
-        public void setWorkExperience(string ex)
+
+        public void addTelephone(long t)
         {
-            workExperience += ex;
+            telephones.Add(t);
+        }
+
+        public string printTelephones(List<long> l)
+        {
+            string value = "";
+            foreach (long o in l)
+            {
+                value += o + ", ";
+            }
+            return value.Substring(0, value.Length - 2);
         }
 
         #endregion
+
     }
 }

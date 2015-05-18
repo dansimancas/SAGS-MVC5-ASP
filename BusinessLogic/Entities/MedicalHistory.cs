@@ -17,6 +17,7 @@ namespace BusinessLogic
         private List<string> medicalInterventions;
         private string observations;
         private int memberId;
+        private static int val = 0;
         
         #endregion
 
@@ -34,13 +35,23 @@ namespace BusinessLogic
 
         #region Constructors
 
+        public MedicalHistory()
+        {
+            this.id = ++val;
+            this.memberId = 1234;
+            this.diseases = new List<string>();
+            this.medicineIntolerances = new List<string>();
+            this.allergies = new List<string>();
+            this.medicalInterventions = new List<string>();
+            this.observations = "";
+        }
+
         public MedicalHistory(int id, int memberId)
         {
-            this.id = id;
+            this.id = ++val;
             this.memberId = memberId;
-
             this.diseases = new List<string>();
-            this.medicalInterventions = new List<string>();
+            this.medicineIntolerances = new List<string>();
             this.allergies = new List<string>();
             this.medicalInterventions = new List<string>();
             this.observations = "";

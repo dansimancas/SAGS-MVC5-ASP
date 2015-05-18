@@ -10,21 +10,22 @@ namespace BusinessLogic
     {
         #region Atributes
 
-        private string id;
+        private int id;
         private string name;
         private string lastname;
         private string gender;
         private string address;
         private string city;
         private List<long> telephones;
-        private string documentTypeID;
+        private int documentTypeID;
         private long identification;
+        private static int val = 0;
 
         #endregion
 
         #region Properties
 
-        public string Id
+        public int Id
         {
             get { return id; }
         }
@@ -66,7 +67,7 @@ namespace BusinessLogic
             set { telephones = value; }
         }
 
-        public string DocumentTypeID
+        public int DocumentTypeID
         {
             get { return documentTypeID; }
             set { documentTypeID = value; }
@@ -78,12 +79,19 @@ namespace BusinessLogic
 
         public Teen()
         {
-            this.id = Guid.NewGuid().ToString();
+            this.id = ++val;
+            this.name = "Laura Cristina";
+            this.lastname = "Schiatti Sisó";
+            this.gender = "Female";
+            this.address = "Manga";
+            this.city = "Cartagena";
+            this.telephones = new List<long>();
+            this.documentTypeID = 1234;
         }
 
-        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, string doc)
+        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, int doc)
         {
-            this.id = Guid.NewGuid().ToString();
+            this.id = ++val;
             this.name = name;
             this.lastname = lastname;
             this.gender = gender;
@@ -95,7 +103,23 @@ namespace BusinessLogic
 
         #endregion
 
+        #region Methods
 
+        public void addTelephone(long t)
+        {
+            telephones.Add(t);
+        }
+
+        public string printTelephones(List<long> l)
+        {
+            string value = "";
+            foreach (long o in l)
+            {
+                value += o + ", ";
+            }
+            return value.Substring(0, value.Length - 2);
+        }
         
+        #endregion
     }
 }

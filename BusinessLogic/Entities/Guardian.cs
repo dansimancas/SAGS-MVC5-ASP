@@ -12,24 +12,24 @@ namespace BusinessLogic
 
         //TODO Agregar atributos propios de los guardianes.
 
-        private string id;
+        private int id;
         private string name;
         private string lastname;
         private string gender;
         private string address;
         private string city;
-        private long telephone;
+        private List<long> telephones;
+        private int documentTypeID;
         private long identification;
-        private long documentType;
+        private static int val;
 
         #endregion
 
         #region Properties
 
-        public string Id
+        public int Id
         {
             get { return id; }
-            set { id = value; }
         }
         public string Name
         {
@@ -56,38 +56,88 @@ namespace BusinessLogic
             get { return city; }
             set { city = value; }
         }
-        public long Telephone
-        {
-            get { return telephone; }
-            set { telephone = value; }
-        }
         public long Identification
         {
             get { return identification; }
             set { identification = value; }
         }
-        public long DocumentType
+        public List<long> Telephones
         {
-            get { return documentType; }
-            set { documentType = value; }
+            get { return telephones; }
+            set { telephones = value; }
+        }
+        public int DocumentTypeID
+        {
+            get { return documentTypeID; }
+            set { documentTypeID = value; }
         }
 
         #endregion
 
         #region Constructors
 
-        public Guardian(string id, string name, string lastname, string gender, string address, string city, long tel, long doc)
+        public Guardian()
         {
-            this.id = id;
+            this.id = ++val;
+            this.name = "Daniela";
+            this.lastname = "Simancas Mateus";
+            this.gender = "Femenine";
+            this.address = "Torices";
+            this.city = "Cartagena";
+            this.telephones = new List<long>();
+            this.documentTypeID = 1;
+            this.identification = 1050692143;
+        }
+
+        public Guardian(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, long ident)
+        {
+            this.id = ++val;
             this.name = name;
             this.lastname = lastname;
             this.gender = gender;
             this.address = address;
             this.city = city;
-            this.telephone = tel;
-            this.documentType = doc;
+            this.telephones = tel;
+            this.documentTypeID = doc;
+            this.identification = ident;
         }
 
         #endregion
+
+        #region Methods
+
+        public void addTelephone(long t)
+        {
+            telephones.Add(t);
+        }
+        public string printTelephones(List<long> l)
+        {
+            string value = "";
+            foreach (long o in l)
+            {
+                value += o+", ";
+            }
+            return value.Substring(0, value.Length - 2);
+        }
+
+        #endregion
+
+        #region Overwritten methods
+
+        //TODO Cambiar document type ID por document type Name
+        public override string ToString()
+        {
+            return "\nGuardian:\nId: " + this.id +
+                "\nName: " + this.name +
+                "\nLast name: " + this.gender +
+                "\nAddress: " + this.address +
+                "\nCity: " + this.city +
+                "\nTelephones: " + printTelephones(telephones) +
+                "\nDocument type: " + this.documentTypeID +
+                "\nIdentification: " + this.identification;
+        }
+
+        #endregion
+
     }
 }

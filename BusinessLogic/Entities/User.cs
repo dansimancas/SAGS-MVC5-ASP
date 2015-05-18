@@ -15,12 +15,13 @@ namespace BusinessLogic
         private int memberId;
         private string email;
         private string password;
+        private static int val = 0;
 
         #endregion
 
         #region Properties
 
-        public int Id { get; set; }
+        public int Id { get; }
         public string Role { get; set; }
         public int MemberId { get; set; }
         public string Email { get; set; }
@@ -30,9 +31,18 @@ namespace BusinessLogic
 
         #region Constructors
 
-        public User(int id, string role, int memberid, string email, string password)
+        public User()
         {
-            this.id = id;
+            this.id = ++val;
+            this.role = "Default";
+            this.memberId = 1234;
+            this.email = "user@email.com";
+            this.password = "1234qwer";
+        }
+
+        public User(string role, int memberid, string email, string password)
+        {
+            this.id = ++val;
             this.role = role;
             this.memberId = memberid;
             this.email = email;
