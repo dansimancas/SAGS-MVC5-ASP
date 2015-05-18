@@ -28,6 +28,11 @@ namespace BusinessLogic
             set { name = value; }
         }
 
+        public int Val
+        {
+            get { return val; }
+        }
+
         #endregion
 
         #region Constructors

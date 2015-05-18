@@ -18,7 +18,7 @@ namespace BusinessLogic
         string Address { get; set; }
         string City { get; set; }
         List<long> Telephones { get; set; }
-        string DocumentTypeID { get; set; }
+        int DocumentTypeID { get; set; }
         long Identification { get; set; }
 
         #endregion
@@ -26,7 +26,7 @@ namespace BusinessLogic
         #region Methods
 
         void addTelephone(long t);
-        public string printTelephones(List<long> l);
+        string printTelephones(List<long> l);
         
         #endregion
     }

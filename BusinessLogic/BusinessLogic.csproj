@@ -40,8 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\DocumentType.cs" />
+    <Compile Include="Entities\EducationalSection.cs" />
     <Compile Include="Entities\MedicalHistory.cs" />
+    <Compile Include="Entities\ScoutGroup.cs" />
     <Compile Include="Entities\Teen.cs" />
+    <Compile Include="Entities\Unit.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\InterfaceMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
