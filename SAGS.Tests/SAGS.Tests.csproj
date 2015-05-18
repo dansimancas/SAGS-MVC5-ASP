@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{492E191B-9888-44AF-827A-8DE677C3A586}</ProjectGuid>
+    <ProjectGuid>{97E19B22-D095-40AC-B63D-E64B8E0826A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SAGS.Tests</RootNamespace>
@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SAGS\SAGS.csproj">
-      <Project>{6DFDBC30-1271-445D-8C66-42BDC47A741E}</Project>
+      <Project>{D5B8E673-1A55-4062-9716-EBDC03410A38}</Project>
       <Name>SAGS</Name>
     </ProjectReference>
   </ItemGroup>

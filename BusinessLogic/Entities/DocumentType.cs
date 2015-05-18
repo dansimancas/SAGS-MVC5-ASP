@@ -5,10 +5,14 @@ using System.Text;
 
 namespace BusinessLogic
 {
-    class DocumentType
+    public class DocumentType
     {
         #region Atributes
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> origin/master
         private int id;
         private string name;
         private static int val = 0;
@@ -20,6 +24,7 @@ namespace BusinessLogic
         public int Id
         {
             get { return id; }
+            set { id = value; }
         }
 
         public string Name
@@ -34,6 +39,7 @@ namespace BusinessLogic
 
         public DocumentType()
         {
+<<<<<<< HEAD
             this.id = ++val;
         }
 
@@ -42,6 +48,12 @@ namespace BusinessLogic
             this.id = ++val;
             this.name = name;
         }
+=======
+
+            this.id = 0;
+            this.name = "";
+        }        
+>>>>>>> origin/master
 
         #endregion
     }
