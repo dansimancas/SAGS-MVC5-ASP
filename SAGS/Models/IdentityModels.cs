@@ -29,7 +29,5 @@ namespace SAGS.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<BusinessLogic.DocumentType> DocumentTypes { get; set; }
     }
 }
