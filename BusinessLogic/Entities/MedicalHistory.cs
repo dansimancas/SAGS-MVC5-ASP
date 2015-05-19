@@ -88,9 +88,31 @@ namespace BusinessLogic
 
         public void addObservations(string obs)
         {
-            this.observations += " " + obs;
+            this.observations = (this.observations == "") ? obs : ". " + obs;
         }
 
+        private string printStringList(List<string> mylist)
+        {
+            string value = "";
+            foreach (string s in mylist)
+            {
+                value += s + ", ";
+            }
+            return value.Substring(0, value.Length - 2);
+        }
+
+        #endregion
+
+        #region Overwritten methods
+        //TODO terminar!!!!
+        public override string ToString()
+        {
+            return "\nMedical history:\nId: "+this.id+
+                "\nDiseases: "+printStringList(this.diseases)+
+                "\nMedicine intolerances: "+printStringList(this.medicineIntolerances)+
+                "\n"
+        }
+        
         #endregion
     }
 }

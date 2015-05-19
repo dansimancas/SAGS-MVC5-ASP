@@ -63,6 +63,23 @@ namespace BusinessLogic
 
         #region Methods
 
+        public void addObservation(string obs)
+        {
+            this.observations = (this.observations == "") ? obs : ". " + obs;
+        }
+
+        #endregion
+
+        #region Overwritten methods
+
+        public override string ToString()
+        {
+            return "\nEducational section: \nId: " + this.id +
+                "\nName: " + this.name +
+                "\nInitial age: " + this.initialAge +
+                "\nFinal age: " + this.finalAge +
+                "\nObservations: " + this.observations;
+        }
 
         #endregion
     }

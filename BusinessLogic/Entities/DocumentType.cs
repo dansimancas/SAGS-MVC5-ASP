@@ -8,6 +8,7 @@ namespace BusinessLogic
     public class DocumentType
     {
         #region Atributes
+
         private int id;
         private string name;
         private static int val = 0;
@@ -47,6 +48,16 @@ namespace BusinessLogic
         {
             this.id = ++val;
             this.name = name;
+        }
+
+        #endregion
+
+        #region Overwritten constructors
+
+        public override string ToString()
+        {
+            return "\nDocument type:\nId: " + this.id +
+                "\nName: " + this.name;
         }
 
         #endregion
