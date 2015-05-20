@@ -34,6 +34,26 @@ namespace SAGS
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.min.js"));
 
+            //Pace
+            bundles.Add(new ScriptBundle("~/bundles/pace").Include(
+                      "~/Scripts/plugins/pace/pace.min.js"));
+            
+            //Classie
+            bundles.Add(new ScriptBundle("~/bundles/classie").Include(
+                      "~/Scripts/plugins/classie/classie.js"));
+
+            //CbnAnimatedHeader
+            bundles.Add(new ScriptBundle("~/bundles/cbpAnimatedHeader").Include(
+                      "~/Scripts/plugins/cbpAnimatedHeader/cbpAnimatedHeader.js"));
+
+            //Wow
+            bundles.Add(new ScriptBundle("~/bundles/wow").Include(
+                      "~/Scripts/plugins/wow/wow.js"));
+
+            //Inspina Landing
+            bundles.Add(new ScriptBundle("~/bundles/inspina/landing").Include(
+                      "~/Scripts/app/inspinia.landing.js"));
+
             // Inspinia script
             bundles.Add(new ScriptBundle("~/bundles/inspinia").Include(
                       "~/Scripts/plugins/metisMenu/metisMenu.min.js",
