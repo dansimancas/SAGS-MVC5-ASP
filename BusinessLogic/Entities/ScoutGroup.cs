@@ -10,8 +10,7 @@ namespace BusinessLogic
     {
         #region Atributes
 
-        private static ScoutGroup group;
-        List<EducationalSection> sections = new List<EducationalSection>();
+        private static ScoutGroup group;        
         private string id;
         private string name;
         private string country;
@@ -63,14 +62,6 @@ namespace BusinessLogic
             if (group == null)
                 group = new ScoutGroup();
             return group;
-        }
-        public void addSection(EducationalSection s)
-        {
-            sections.Add(s);
-        }
-        public List<EducationalSection> getSection()
-        {
-            return sections;
         }
 
         #endregion

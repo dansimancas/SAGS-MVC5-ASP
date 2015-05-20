@@ -50,6 +50,7 @@ namespace BusinessLogic
         {
             this.id = ++val;
             this.memberId = memberId;
+            this.medicineIntolerances = new List<string>();
             this.diseases = new List<string>();
             this.medicineIntolerances = new List<string>();
             this.allergies = new List<string>();
