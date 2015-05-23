@@ -26,7 +26,7 @@ namespace BusinessLogic
         #region Methods
 
         void addTelephone(long t);
-        string printTelephones(List<long> l);
+        //protected string printTelephones(List<long> l);
         
         #endregion
     }

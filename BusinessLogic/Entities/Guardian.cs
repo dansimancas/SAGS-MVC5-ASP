@@ -110,19 +110,24 @@ namespace BusinessLogic
         {
             telephones.Add(t);
         }
-        public string printTelephones(List<long> l)
+
+        protected string printTelephones(List<long> tels)
         {
-            string value = "";
-            foreach (long o in l)
+            if (tels != null && tels.Count > 0)
             {
-                value += o+", ";
+                string value = "";
+                foreach (long o in tels)
+                {
+                    value += o + ", ";
+                }
+                return value.Substring(0, value.Length - 2);
             }
-            return value.Substring(0, value.Length - 2);
+            else return "There are no telephone numbers asigned yet.";
         }
 
         #endregion
 
-        #region Overwritten methods
+        #region Overridden methods
 
         //TODO Cambiar document type ID por document type Name
         public override string ToString()

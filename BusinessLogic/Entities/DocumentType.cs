@@ -44,7 +44,7 @@ namespace BusinessLogic
 
         #endregion
 
-        #region Overwritten constructors
+        #region Overridden methods
 
         public override string ToString()
         {

@@ -70,7 +70,7 @@ namespace BusinessLogic
 
         #endregion
 
-        #region Overwritten methods
+        #region Overridden methods
 
         public override string ToString()
         {

@@ -23,13 +23,44 @@ namespace BusinessLogic
 
         #region Properties
 
-        public int Id { get; set; }
-        public List<string> Diseases { get; set; }
-        public List<string> MedicineIntolerances { get; set; }
-        public List<string> Alergies { get; set; }
-        public List<string> MedicalInterventions { get; set; }
-        public string Observations { get; set; }
-        public int MemberId { get; set; }
+        public int Id { 
+            get { return id; }
+        }
+
+        public List<string> Diseases
+        {
+            get { return diseases; }
+            set { diseases = value; }
+        }
+
+        public List<string> MedicineIntolerances
+        {
+            get { return medicineIntolerances; }
+            set { medicineIntolerances = value; }
+        }
+
+        public List<string> Allergies
+        {
+            get { return allergies; }
+            set { allergies = value; }
+        }
+
+        public List<string> MedicalInterventions
+        {
+            get { return medicalInterventions; }
+            set { medicalInterventions = value; }
+        }
+
+        public string Observations
+        {
+            get { return observations; }
+            set { observations = value; }
+        }
+
+        public int MemberId
+        {
+            get { return memberId; }
+        }
 
         #endregion
 
@@ -46,7 +77,7 @@ namespace BusinessLogic
             this.observations = "";
         }
 
-        public MedicalHistory(int id, int memberId)
+        public MedicalHistory(int memberId)
         {
             this.id = ++val;
             this.memberId = memberId;
@@ -64,54 +95,97 @@ namespace BusinessLogic
 
         public void addDisease(string disease)
         {
-            this.diseases.Add(disease);
+            if (Diseases != null)
+            {
+                this.Diseases.Add(disease);
+            }
+            else
+            {
+                this.Diseases = new List<string>();
+                this.Diseases.Add(disease);
+            }
+            
         }
 
         public void addMedicineIntolerance(string medicine)
         {
-            this.medicineIntolerances.Add(medicine);
+            if (this.MedicineIntolerances != null)
+            {
+                this.MedicineIntolerances.Add(medicine);
+            }
+            else
+            {
+                this.MedicineIntolerances = new List<string>();
+                this.MedicineIntolerances.Add(medicine);
+            }
+            
         }
 
         public void addAllergie(string allergie)
         {
-            this.allergies.Add(allergie);
+            if (this.Allergies != null)
+            {
+                this.Allergies.Add(allergie);
+            }
+            else
+            {
+                this.Allergies = new List<string>();
+                this.Allergies.Add(allergie);
+            }
+            
         }
 
         public void addMedicalIntervention(string intervention)
         {
-            this.medicalInterventions.Add(intervention);
+            if (this.MedicalInterventions != null)
+            {
+                this.MedicalInterventions.Add(intervention);
+            }
+            else
+            {
+                this.MedicalInterventions = new List<string>();
+                this.MedicalInterventions.Add(intervention);
+            }
+            
         }
 
         public void setObservations(string obs)
         {
-            this.observations = obs;
+            this.Observations = obs;
         }
 
         public void addObservations(string obs)
         {
-            this.observations = (this.observations == "") ? obs : ". " + obs;
+            this.Observations = (this.Observations == "") ? obs : ". " + obs;
         }
 
-        private string printStringList(List<string> mylist)
+        protected string printStringList(List<string> mylist)
         {
-            string value = "";
-            foreach (string s in mylist)
+            if (mylist != null && mylist.Count > 0)
             {
-                value += s + ", ";
+                string value = "";
+                foreach (string s in mylist)
+                {
+                    value += s + ", ";
+                }
+                return value.Substring(0, value.Length - 2);
             }
-            return value.Substring(0, value.Length - 2);
+            else return "There are no elements asigned yet.";
         }
 
         #endregion
 
-        #region Overwritten methods
-        //TODO terminar!!!!
+        #region Overridden methods
+
         public override string ToString()
         {
-            return "\nMedical history:\nId: " + this.id +
-                "\nDiseases: " + printStringList(this.diseases) +
-                "\nMedicine intolerances: " + printStringList(this.medicineIntolerances) +
-                "\n";
+            return "\nMedical history:\nId: " + this.Id +
+                "\nMember id: " + this.MemberId +
+                "\nDiseases: " + printStringList(this.Diseases) +
+                "\nMedicine intolerances: " + printStringList(this.MedicineIntolerances) +
+                "\nAllergies: " + printStringList(this.Allergies) +
+                "\nMedical interventions: " + printStringList(this.MedicalInterventions) +
+                "\nObservations: " + this.Observations;
         }
         
         #endregion

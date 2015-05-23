@@ -19,6 +19,8 @@ namespace BusinessLogic
         private List<long> telephones;
         private int documentTypeID;
         private long identification;
+        private List<string> guardiansId;
+        private MedicalHistory medicalHistory;
         private static int val = 0;
 
         #endregion
@@ -54,12 +56,6 @@ namespace BusinessLogic
             get { return city; }
             set { city = value; }
         }
-    
-        public long Identification
-        {
-            get { return identification; }
-            set { identification = value; }
-        }
 
         public List<long> Telephones
         {
@@ -71,6 +67,23 @@ namespace BusinessLogic
         {
             get { return documentTypeID; }
             set { documentTypeID = value; }
+        }
+    
+        public long Identification
+        {
+            get { return identification; }
+            set { identification = value; }
+        }
+
+        public List<string> GuardiansId
+        {
+            get { return guardiansId; }
+            set { guardiansId = value; }
+        }
+
+        public MedicalHistory MedicalHistoryId
+        {
+            get { return medicalHistory; }
         }
 
         #endregion
@@ -87,9 +100,11 @@ namespace BusinessLogic
             this.city = "Cartagena";
             this.telephones = new List<long>();
             this.documentTypeID = 1234;
+            this.identification = 1050962143;
+            this.medicalHistory = new MedicalHistory(this.id);
         }
 
-        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, int doc)
+        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, int doc, long id, List<string> guardians, MedicalHistory med)
         {
             this.id = ++val;
             this.name = name;
@@ -99,6 +114,25 @@ namespace BusinessLogic
             this.city = city;
             this.telephones = tels;
             this.documentTypeID = doc;
+            this.identification = id;
+            this.guardiansId = guardians;
+            //Ensuring that the medical history is his/her own.
+            this.medicalHistory = (med.MemberId == this.id) ? med : new MedicalHistory(this.id);
+        }
+
+        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, int doc, long id, List<string> guardians)
+        {
+            this.id = ++val;
+            this.name = name;
+            this.lastname = lastname;
+            this.gender = gender;
+            this.address = address;
+            this.city = city;
+            this.telephones = tels;
+            this.documentTypeID = doc;
+            this.identification = id;
+            this.guardiansId = guardians;
+            this.medicalHistory = new MedicalHistory(this.id);
         }
 
         #endregion
@@ -110,16 +144,52 @@ namespace BusinessLogic
             telephones.Add(t);
         }
 
-        public string printTelephones(List<long> l)
+        protected string printTelephones(List<long> tels)
         {
-            string value = "";
-            foreach (long o in l)
+            if (tels != null && tels.Count > 0)
             {
-                value += o + ", ";
+                string value = "";
+                foreach (long o in tels)
+                {
+                    value += o + ", ";
+                }
+                return value.Substring(0, value.Length - 2);
             }
-            return value.Substring(0, value.Length - 2);
+            else return "There are no telephone numbers asigned yet.";
+        }
+
+        protected string printStringList(List<string> mylist)
+        {
+            if (mylist != null && mylist.Count > 0)
+            {
+                string value = "";
+                foreach (string s in mylist)
+                {
+                    value += s + ", ";
+                }
+                return value.Substring(0, value.Length - 2);
+            }
+            else return "There are no elements asigned yet.";
         }
         
+        #endregion
+
+        #region Overridden methods
+
+        public override string ToString()
+        {
+            return "\nTeen:\nId: " + this.id +
+                "\nName: " + this.name +
+                "\nLast name: " + this.gender +
+                "\nAddress: " + this.address +
+                "\nCity: " + this.city +
+                "\nTelephones: " + printTelephones(telephones) +
+                "\nDocument type: " + this.documentTypeID +
+                "\nIdentification: " + this.identification +
+                "\nGuardians : " + printStringList(guardiansId) +
+                "\nMedical History ID: " + this.medicalHistory.Id;
+        }
+
         #endregion
 
     }

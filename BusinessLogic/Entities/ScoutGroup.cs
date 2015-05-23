@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessLogic.Properties;
+using BusinessLogic;
 
 namespace BusinessLogic
 {
@@ -64,16 +64,8 @@ namespace BusinessLogic
         }
         #endregion
 
-        #region Methods
-        public static ScoutGroup getInstance()
-        {
-            if (instance == null)
-                instance = new ScoutGroup();
-            return instance;
-        }
-        #endregion
+        #region Constructors
 
-        #region Constructor
         public ScoutGroup()
         {
             try
@@ -153,12 +145,30 @@ namespace BusinessLogic
         }
         #endregion
 
-        #region methods 
+        #region Methods
+        public static ScoutGroup getInstance()
+        {
+            if (instance == null)
+                instance = new ScoutGroup();
+            return instance;
+        }
+
+        public void editScoutGroupData(string name, int number, string city, string state, string country, string address, string sponsor)
+        {
+            instance.Name = name;
+            instance.Number = number;
+            instance.City = city;
+            instance.State = state;
+            instance.Country = country;
+            instance.Address = address;
+            instance.Sponsor = sponsor;
+        }
+
         public void save()
         {
             Settings.Default["name"] = this.name;
-            Settings.Default["number"]  = this.number;
-            Settings.Default["city"]= this.city;
+            Settings.Default["number"] = this.number;
+            Settings.Default["city"] = this.city;
             Settings.Default["state"] = this.state;
             Settings.Default["country"] = this.country;
             Settings.Default["address"] = this.address;
@@ -166,11 +176,36 @@ namespace BusinessLogic
             Settings.Default["sponsor"] = this.sponsor;
             Settings.Default.Save();
         }
+
+        public string printTelephoneList(List<long> tels)
+        {
+            string result = "";
+            if (tels != null && tels.Count > 0)
+            {
+                foreach (long l in tels)
+                {
+                    result += l + ", ";
+                }
+                return result.Substring(0, result.Length - 2);
+            }
+            else return "There are no telephone numbers asigned yet.";
+        }
+
         #endregion
 
         #region Overwritten methods
-        
-        
+
+        public override string ToString()
+        {
+            return "\nScout Group:\nName: " + instance.name +
+                "\nNumber: " + instance.number +
+                "\nCity: " + instance.city +
+                "\nState: " + instance.state +
+                "\nCountry: " + instance.country +
+                "\nAddress: " + instance.address +
+                "\nTelephones: " + printTelephoneList(instance.telephone) +
+                "\nSponsor: " + instance.sponsor;
+        }
         
         #endregion
     }
