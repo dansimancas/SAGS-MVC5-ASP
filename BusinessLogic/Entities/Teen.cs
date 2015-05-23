@@ -17,7 +17,7 @@ namespace BusinessLogic
         private string address;
         private string city;
         private List<long> telephones;
-        private int documentTypeID;
+        private DocumentType typeOfDocument;
         private long identification;
         private static int val = 0;
 
@@ -67,10 +67,10 @@ namespace BusinessLogic
             set { telephones = value; }
         }
 
-        public int DocumentTypeID
+        public DocumentType TypeOfDocument
         {
-            get { return documentTypeID; }
-            set { documentTypeID = value; }
+            get { return typeOfDocument; }
+            set { typeOfDocument = value; }
         }
 
         #endregion
@@ -86,10 +86,10 @@ namespace BusinessLogic
             this.address = "Manga";
             this.city = "Cartagena";
             this.telephones = new List<long>();
-            this.documentTypeID = 1234;
+            this.typeOfDocument = new DocumentType();
         }
 
-        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, int doc)
+        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, DocumentType doc)
         {
             this.id = ++val;
             this.name = name;
@@ -98,7 +98,7 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = tels;
-            this.documentTypeID = doc;
+            this.typeOfDocument = doc;
         }
 
         #endregion

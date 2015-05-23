@@ -64,6 +64,20 @@ namespace BusinessLogic
             return group;
         }
 
+        public void setScoutGroupData(string id, string name, string country, string city, string address, string sponsor)
+        {
+            if (group.Id == null && group.Name == null && group.Country == null && group.City == null && group.Address == null && group.Sponsor == null)
+            {
+                group.Id = id;
+                group.Name = name;
+                group.Country = country;
+                group.City = city;
+                group.Address = address;
+                group.Sponsor = sponsor;
+            }
+            
+        }
+
         #endregion
 
         #region Overwritten methods
