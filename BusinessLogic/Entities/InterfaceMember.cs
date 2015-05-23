@@ -18,7 +18,7 @@ namespace BusinessLogic
         string Address { get; set; }
         string City { get; set; }
         List<long> Telephones { get; set; }
-        int DocumentTypeID { get; set; }
+        DocumentType TypeOfDocument { get; set; }
         long Identification { get; set; }
 
         #endregion

@@ -18,10 +18,10 @@ namespace BusinessLogic
         private string address;
         private string city;
         private List<long> telephones;
-        private int documentTypeID;
+        private DocumentType typeOfDocument;
         private long identification;        
         private List<string> guardiansId;
-        private int medicalHistoryId;
+        private MedicalHistory medicalHistory;
         private static int val = 0;
 
         //Education and work experience
@@ -87,10 +87,10 @@ namespace BusinessLogic
             get { return guardiansId; }
             set { guardiansId = value; }
         }
-        public int MedicalHistoryId
+        public MedicalHistory MedicalHistory
         {
-            get { return medicalHistoryId; }
-            set { medicalHistoryId = value; }
+            get { return medicalHistory; }
+            set { medicalHistory = value; }
         }
         public List<long> Telephones
         {
@@ -102,10 +102,10 @@ namespace BusinessLogic
             get { return identification; }
             set { identification = value; }
         }
-        public int DocumentTypeID
+        public DocumentType TypeOfDocument
         {
-            get { return documentTypeID; }
-            set { documentTypeID = value; }
+            get { return typeOfDocument; }
+            set { typeOfDocument = value; }
         }
         public Education ScouterEducation
         {
@@ -132,13 +132,13 @@ namespace BusinessLogic
             this.city = "Cartagena";
             this.telephones = null;
             this.identification = 1234;
-            this.documentTypeID = 1;
+            this.typeOfDocument = new DocumentType();
             this.scouterEducation = new Education();
             this.workExperience = "Programmer";
         }
 
         //Constructor with all atributes
-        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, List<string> guard, int med, Education education, string exp)
+        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, DocumentType doc, List<string> guard, MedicalHistory med, Education education, string exp)
         {
             this.id = ++val;
             this.name = name;
@@ -147,15 +147,15 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = tel;
-            this.documentTypeID = doc;
+            this.typeOfDocument = doc;
             this.guardiansId = guard;
-            this.medicalHistoryId = med;
+            this.medicalHistory = med;
             this.scouterEducation = education;
             this.workExperience = exp;
         }
 
         //Constructor without elaborated or composed atributes
-        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, int med)
+        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, DocumentType doc, MedicalHistory med)
         {
             this.id = ++val;
             this.name = name;
@@ -164,9 +164,9 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = tel;
-            this.documentTypeID = doc;
+            this.typeOfDocument = new DocumentType();
             this.guardiansId = new List<string>();
-            this.medicalHistoryId = med;
+            this.medicalHistory = med;
             this.scouterEducation = new Education();
         }
 
@@ -202,6 +202,34 @@ namespace BusinessLogic
                 value += o + ", ";
             }
             return value.Substring(0, value.Length - 2);
+        }
+
+        private string printStringList(List<string> mylist)
+        {
+            string value = "";
+            foreach (string s in mylist)
+            {
+                value += s + ", ";
+            }
+            return value.Substring(0, value.Length - 2);
+        }
+
+        #endregion
+
+        #region Overwritten methods
+
+        public override string ToString()
+        {
+            return "\nScouter:\nId: " + this.id +
+                "\nName: " + this.name +
+                "\nLast name: " + this.gender +
+                "\nAddress: " + this.address +
+                "\nCity: " + this.city +
+                "\nTelephones: " + printTelephones(telephones) +
+                "\nDocument type: " + this.typeOfDocument.Name +
+                "\nIdentification: " + this.identification +
+                "\nGuardians : " + printStringList(guardiansId) +
+                "\nMedical History ID: " + this.medicalHistory.Id;
         }
 
         #endregion

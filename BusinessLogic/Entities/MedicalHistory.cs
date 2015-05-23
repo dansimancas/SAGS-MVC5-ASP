@@ -108,10 +108,13 @@ namespace BusinessLogic
         //TODO terminar!!!!
         public override string ToString()
         {
-            return "\nMedical history:\nId: "+this.id+
-                "\nDiseases: "+printStringList(this.diseases)+
-                "\nMedicine intolerances: "+printStringList(this.medicineIntolerances)+
-                "\n"
+            return "\nMedical history:\nId: " + this.id +
+                "\nMember id: " + this.memberId +
+                "\nDiseases: " + printStringList(this.diseases) +
+                "\nMedicine intolerances: " + printStringList(this.medicineIntolerances) +
+                "\nAllergies: " + printStringList(this.allergies) +
+                "\nMedical interventions: " + printStringList(this.medicalInterventions) +
+                "\nObservations: " + this.observations;
         }
         
         #endregion

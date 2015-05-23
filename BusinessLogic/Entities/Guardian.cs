@@ -19,7 +19,7 @@ namespace BusinessLogic
         private string address;
         private string city;
         private List<long> telephones;
-        private int documentTypeID;
+        private DocumentType typeOfDocument;
         private long identification;
         private static int val;
 
@@ -66,10 +66,10 @@ namespace BusinessLogic
             get { return telephones; }
             set { telephones = value; }
         }
-        public int DocumentTypeID
+        public DocumentType TypeOfDocument
         {
-            get { return documentTypeID; }
-            set { documentTypeID = value; }
+            get { return typeOfDocument; }
+            set { typeOfDocument = value; }
         }
 
         #endregion
@@ -85,11 +85,11 @@ namespace BusinessLogic
             this.address = "Torices";
             this.city = "Cartagena";
             this.telephones = new List<long>();
-            this.documentTypeID = 1;
+            this.typeOfDocument = new DocumentType();
             this.identification = 1050692143;
         }
 
-        public Guardian(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, long ident)
+        public Guardian(string name, string lastname, string gender, string address, string city, List<long> tel, DocumentType doc, long ident)
         {
             this.id = ++val;
             this.name = name;
@@ -98,7 +98,7 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = tel;
-            this.documentTypeID = doc;
+            this.typeOfDocument = doc;
             this.identification = ident;
         }
 
@@ -133,7 +133,7 @@ namespace BusinessLogic
                 "\nAddress: " + this.address +
                 "\nCity: " + this.city +
                 "\nTelephones: " + printTelephones(telephones) +
-                "\nDocument type: " + this.documentTypeID +
+                "\nDocument type: " + this.typeOfDocument.Name +
                 "\nIdentification: " + this.identification;
         }
 
