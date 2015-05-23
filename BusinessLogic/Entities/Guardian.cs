@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class Guardian : InterfaceMember
+    public class Guardian : IMember
     {
         #region Atributes
 
@@ -19,6 +19,7 @@ namespace BusinessLogic
         private string address;
         private string city;
         private List<long> telephones;
+        private List<string> emailAddresses;
         private int documentTypeID;
         private long identification;
         private static int val;
@@ -66,6 +67,11 @@ namespace BusinessLogic
             get { return telephones; }
             set { telephones = value; }
         }
+        public List<string> EmailAddresses
+        {
+            get { return emailAddresses; }
+            set { emailAddresses = value; }
+        }
         public int DocumentTypeID
         {
             get { return documentTypeID; }
@@ -85,11 +91,12 @@ namespace BusinessLogic
             this.address = "Torices";
             this.city = "Cartagena";
             this.telephones = new List<long>();
+            this.emailAddresses = new List<string>();
             this.documentTypeID = 1;
             this.identification = 1050692143;
         }
 
-        public Guardian(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, long ident)
+        public Guardian(string name, string lastname, string gender, string address, string city, List<long> tel, List<string> em, int doc, long ident)
         {
             this.id = ++val;
             this.name = name;
@@ -97,7 +104,8 @@ namespace BusinessLogic
             this.gender = gender;
             this.address = address;
             this.city = city;
-            this.telephones = tel;
+            this.telephones = (tel != null) ? tel : new List<long>();
+            this.emailAddresses = (em != null) ? em : new List<string>();
             this.documentTypeID = doc;
             this.identification = ident;
         }
@@ -109,6 +117,19 @@ namespace BusinessLogic
         public void addTelephone(long t)
         {
             telephones.Add(t);
+        }
+
+        public void addEmailAddress(string e)
+        {
+            if (emailAddresses != null)
+            {
+                emailAddresses.Add(e);
+            }
+            else
+            {
+                emailAddresses = new List<string>();
+                emailAddresses.Add(e);
+            }
         }
 
         protected string printTelephones(List<long> tels)
@@ -123,6 +144,13 @@ namespace BusinessLogic
                 return value.Substring(0, value.Length - 2);
             }
             else return "There are no telephone numbers asigned yet.";
+        }
+
+        public void Update(Activity activity, string message)
+        {
+            Console.WriteLine("\nGUARDIANS/" + activity.Name + " notification: " + message + ".");
+            string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
+            SendEmail send = new SendEmail(this.emailAddresses, "Activity: " + activity.Name + " Notification", body);
         }
 
         #endregion
@@ -143,6 +171,5 @@ namespace BusinessLogic
         }
 
         #endregion
-
     }
 }

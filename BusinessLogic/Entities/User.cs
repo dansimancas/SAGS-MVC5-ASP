@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class User
+    public class User : IObserver
     {
         #region Atributes
 
@@ -36,7 +36,7 @@ namespace BusinessLogic
             this.id = ++val;
             this.role = "Default";
             this.memberId = 1234;
-            this.email = "user@email.com";
+            this.email = "lauri_cdd@hotmail.com";
             this.password = "1234qwer";
         }
 
@@ -51,7 +51,18 @@ namespace BusinessLogic
 
         #endregion
 
-        #region Overwritten constructors
+        #region Methods
+
+        public void Update(Activity activity, string message)
+        {
+            Console.WriteLine("\nUSERS/" + activity.Name + " notification: " + message + ".");
+            string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
+            SendEmail send = new SendEmail(this.email, "Activity: " + activity.Name + " Notification", body);
+        }
+
+        #endregion
+
+        #region Overridden methods
 
         public override bool Equals(object obj)
         {
@@ -63,7 +74,7 @@ namespace BusinessLogic
         {
             return "\nUser:\nId: " + this.id +
                 "\nRole: " + this.role +
-                "\nInterfaceMember Id: " + this.memberId +
+                "\nIMember Id: " + this.memberId +
                 "\nEmail: " + this.email;
         }
 

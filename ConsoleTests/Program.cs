@@ -25,6 +25,13 @@ namespace ConsoleTests
             Scouter s = new TeenToScouterAdapter(t);
             Console.WriteLine(s.ToString());
 
+            Console.WriteLine("\nOBSERVER TESTS\n");
+
+            //Activity a1 = new Activity(new List<IObserver> { new User(), new Guardian() });
+            Activity a1 = new Activity(new List<IObserver> { new User()});
+
+            a1.Name = "Lanzamiento de CEIS";
+
             Console.ReadLine();
         }
     }

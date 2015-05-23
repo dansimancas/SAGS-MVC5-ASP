@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class Teen : InterfaceMember
+    public class Teen : IMember
     {
         #region Atributes
 
@@ -17,6 +17,7 @@ namespace BusinessLogic
         private string address;
         private string city;
         private List<long> telephones;
+        private List<string> emailAddresses;
         private int documentTypeID;
         private long identification;
         private List<string> guardiansId;
@@ -61,6 +62,12 @@ namespace BusinessLogic
         {
             get { return telephones; }
             set { telephones = value; }
+        }
+
+        public List<string> EmailAddresses
+        {
+            get { return emailAddresses; }
+            set { emailAddresses = value; }
         }
 
         public int DocumentTypeID
@@ -144,6 +151,19 @@ namespace BusinessLogic
             telephones.Add(t);
         }
 
+        public void addEmailAddress(string e)
+        {
+            if (emailAddresses != null)
+            {
+                emailAddresses.Add(e);
+            }
+            else
+            {
+                emailAddresses = new List<string>();
+                emailAddresses.Add(e);
+            }
+        }
+
         protected string printTelephones(List<long> tels)
         {
             if (tels != null && tels.Count > 0)
@@ -171,6 +191,13 @@ namespace BusinessLogic
             }
             else return "There are no elements asigned yet.";
         }
+
+        public void Update(Activity activity, string message)
+        {
+            Console.WriteLine("\nTEENS/" + activity.Name + " notification: " + message + ".");
+            string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
+            SendEmail send = new SendEmail(this.emailAddresses, "Activity: " + activity.Name + " Notification", body);
+        }
         
         #endregion
 
@@ -191,6 +218,5 @@ namespace BusinessLogic
         }
 
         #endregion
-
     }
 }

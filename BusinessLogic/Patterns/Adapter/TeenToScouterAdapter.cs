@@ -50,7 +50,7 @@ namespace BusinessLogic
 
         public override void addWorkExperience(string ex)
         {
-            WorkExperience += ex;
+            WorkExperience = (WorkExperience == "") ? ex : ". " + ex;  
         }
 
         public override void addTelephone(long t)

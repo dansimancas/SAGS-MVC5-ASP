@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    interface InterfaceMember
+    interface IMember : IObserver
     {
 
         #region Properties
@@ -18,6 +18,7 @@ namespace BusinessLogic
         string Address { get; set; }
         string City { get; set; }
         List<long> Telephones { get; set; }
+        List<string> EmailAddresses { get; set; }
         int DocumentTypeID { get; set; }
         long Identification { get; set; }
 
@@ -26,6 +27,7 @@ namespace BusinessLogic
         #region Methods
 
         void addTelephone(long t);
+        void addEmailAddress(string e);
         //protected string printTelephones(List<long> l);
         
         #endregion

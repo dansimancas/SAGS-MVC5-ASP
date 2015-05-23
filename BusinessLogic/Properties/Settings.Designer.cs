@@ -21,10 +21,6 @@ namespace BusinessLogic {
             get {
                 return defaultInstance;
             }
-            set
-            {
-                defaultInstance = value;
-            }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
@@ -33,10 +29,6 @@ namespace BusinessLogic {
         public string name {
             get {
                 return ((string)(this["name"]));
-            }
-            set
-            {
-                this["name"] = value;
             }
         }
         
@@ -91,6 +83,27 @@ namespace BusinessLogic {
         public string sponsor {
             get {
                 return ((string)(this["sponsor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("euforsita@gmail.com")]
+        public string fromEmail {
+            get {
+                return ((string)(this["fromEmail"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3155496882")]
+        public string fromPassword {
+            get {
+                return ((string)(this["fromPassword"]));
+            }
+            set {
+                this["fromPassword"] = value;
             }
         }
     }
