@@ -19,12 +19,12 @@ namespace ConsoleTests
             /*
             Console.WriteLine("\nGroup name: " + sg.Name);
             sg.Name = "micaela";
-            Console.WriteLine(sg.ToString());*/
-            Teen t = new Teen("daniela", "simancas", "female", "torices", "cartagena", null, null, DocumentType.Cedula, 1050962143, null);
+           /* Console.WriteLine(sg.ToString());*/
+            /* Teen t = new Teen("daniela", "simancas", "female", "torices", "cartagena", null, null, DocumentType.Cedula, 1050962143, null);
             Scouter s = new TeenToScouterAdapter(t);
             Console.WriteLine(s.ToString());
 
-            Console.WriteLine("\nOBSERVER TESTS\n");
+            Console.WriteLine("\nOBSERVER TESTS\n");*/
 
             //Activity a1 = new Activity(new List<IObserver> { new User(), new Guardian() });
             Activity a1 = new Activity(new List<IObserver> { new User()});
