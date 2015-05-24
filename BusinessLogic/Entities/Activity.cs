@@ -18,7 +18,7 @@ namespace BusinessLogic
         private int val = 0;
 
         //Observer
-        private List<IObserver> observers;
+        private static List<IObserver> observers = new List<IObserver>();
 
         #endregion
 
@@ -57,7 +57,7 @@ namespace BusinessLogic
 
         #region Constructors
 
-        public Activity(List<IObserver> observers)
+        public Activity(List<IObserver> obs)
         {
             this.id = ++val;
             this.name = "Der Tag den Offenen Tür";
@@ -66,7 +66,7 @@ namespace BusinessLogic
             this.description = "Heute ist der Tag wenn alles kann mitkommen und deutcshe Würstchen essen.";
             //Observer
             //if(val == 1) observers = new List<IObserver>();
-            this.observers = observers;
+            observers.AddRange(obs);
             NotifyObservers(this,"creation of activity");
         }
 
