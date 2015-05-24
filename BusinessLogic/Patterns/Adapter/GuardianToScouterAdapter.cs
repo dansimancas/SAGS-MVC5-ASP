@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class TeenToScouterAdapter : Scouter
+    public class GuardianToScouterAdapter : Scouter
     {
         #region Atributes
 
-        private Teen teenInstance;
+        private Guardian guardianInstance;
 
         #endregion
 
         #region Constructors
 
-        public TeenToScouterAdapter(Teen t) : base(t.Name, t.Lastname, t.Gender, t.Address, t.City, t.Telephones, t.EmailAddresses,
-            t.DocumentTypeID, t.Identification, t.GuardiansId, t.MedicalHistoryId, new Education(), "")
+        public GuardianToScouterAdapter(Guardian g)
+            : base(g.Name, g.Lastname, g.Gender, g.Address, g.City, g.Telephones, g.EmailAddresses,
+            g.DocumentTypeID, g.Identification, null, new MedicalHistory(), new Education(), "")
         {
-            teenInstance = t;
+            guardianInstance = g;
         }
 
 
@@ -53,12 +54,6 @@ namespace BusinessLogic
             WorkExperience = (WorkExperience == "") ? ex : ". " + ex;  
         }
 
-        public override void addTelephone(long t)
-        {
-            Telephones.Add(t);
-        }
-
         #endregion
-
     }
 }

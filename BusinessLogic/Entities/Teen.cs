@@ -106,12 +106,13 @@ namespace BusinessLogic
             this.address = "Manga";
             this.city = "Cartagena";
             this.telephones = new List<long>();
+            this.emailAddresses = new List<string>();
             this.documentTypeID = 1234;
             this.identification = 1050962143;
             this.medicalHistory = new MedicalHistory(this.id);
         }
 
-        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, int doc, long id, List<string> guardians, MedicalHistory med)
+        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, List<string> em, int doc, long id, List<string> guardians, MedicalHistory med)
         {
             this.id = ++val;
             this.name = name;
@@ -120,6 +121,7 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = tels;
+            this.emailAddresses = (em != null) ? em : new List<string>();
             this.documentTypeID = doc;
             this.identification = id;
             this.guardiansId = guardians;
@@ -127,7 +129,8 @@ namespace BusinessLogic
             this.medicalHistory = (med.MemberId == this.id) ? med : new MedicalHistory(this.id);
         }
 
-        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, int doc, long id, List<string> guardians)
+        //Constructor without MedicalHistory, in case you dont know your scouter id in the moment of instantiating
+        public Teen(string name, string lastname, string gender, string address, string city, List<long> tels, List<string> em, int doc, long id, List<string> guardians)
         {
             this.id = ++val;
             this.name = name;
@@ -136,6 +139,7 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = tels;
+            this.emailAddresses = (em != null) ? em : new List<string>();
             this.documentTypeID = doc;
             this.identification = id;
             this.guardiansId = guardians;

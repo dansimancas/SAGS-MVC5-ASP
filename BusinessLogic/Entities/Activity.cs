@@ -3,27 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
+    [Table("Activities")]
     public class Activity : ISubject
     {
         #region Attributes
 
-        private int id;
+        /*private int id;
         private string name;
         private DateTime begginingDate;
         private DateTime endingDate;
         private string description;
         private int val = 0;
-
         //Observer
-        private List<IObserver> observers;
+        private static List<IObserver> observers = new List<IObserver>();*/
+
+        private int val = 0;
+        private static List<IObserver> observers = new List<IObserver>();
 
         #endregion
 
         #region Properties
 
+        [Key]
+        public int Id { get; set { this.Id = ++val; } }
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public DateTime BegginingDate { get; set; }
+        [Required]
+        public DateTime EndingDate { get; set; }
+        [Required]
+        [MaxLength(200)]
+        public string Description { get; set; }
+        /*
         public int Id
         {
             get { return id; }
@@ -52,21 +69,22 @@ namespace BusinessLogic
             get { return description; }
             set { description = value; NotifyObservers(this, "updated description"); }
         }
+        */
+
 
         #endregion
 
         #region Constructors
 
-        public Activity(List<IObserver> observers)
+        public Activity(List<IObserver> obs)
         {
-            this.id = ++val;
-            this.name = "Der Tag den Offenen Tür";
-            this.begginingDate = DateTime.Now;
-            this.endingDate = begginingDate.AddHours(6);
-            this.description = "Heute ist der Tag wenn alles kann mitkommen und deutcshe Würstchen essen.";
+            this.Id = ++val;
+            this.Name = "Der Tag den Offenen Tür";
+            this.BegginingDate = DateTime.Now;
+            this.EndingDate = BegginingDate.AddHours(6);
+            this.Description = "Heute ist der Tag wenn alles kann mitkommen und deutcshe Würstchen essen.";
             //Observer
-            //if(val == 1) observers = new List<IObserver>();
-            this.observers = observers;
+            observers.AddRange(obs);
             NotifyObservers(this,"creation of activity");
         }
 

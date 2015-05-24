@@ -51,6 +51,8 @@
     <Compile Include="Entities\Unit.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\IMember.cs" />
+    <Compile Include="Patterns\Adapter\GuardianToScouterAdapter.cs" />
+    <Compile Include="Patterns\Adapter\ScouterToGuardianAdapter.cs" />
     <Compile Include="Patterns\Adapter\TeenToScouterAdapter.cs" />
     <Compile Include="Patterns\Observer\IObserver.cs" />
     <Compile Include="Patterns\Observer\ISubject.cs" />

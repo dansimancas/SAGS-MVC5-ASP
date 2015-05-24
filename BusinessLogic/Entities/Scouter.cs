@@ -114,6 +114,7 @@ namespace BusinessLogic
             this.address = "Ternera";
             this.city = "Cartagena";
             this.telephones = new List<long>();
+            this.emailAddresses = new List<string>();
             this.documentTypeID = 1;
             this.identification = 1234;
             this.guardiansId = new List<string>();
@@ -123,7 +124,7 @@ namespace BusinessLogic
         }
 
         //Constructor with all atributes
-        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, long id, List<string> guard, MedicalHistory med, Education education, string exp)
+        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, List<string> em, int doc, long id, List<string> guard, MedicalHistory med, Education education, string exp)
         {
             this.id = ++val;
             this.name = name;
@@ -132,6 +133,7 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = tel;
+            this.emailAddresses = (em != null) ? em : new List<string>();
             this.documentTypeID = doc;
             this.identification = id;
             this.guardiansId = guard;
@@ -141,7 +143,7 @@ namespace BusinessLogic
         }
 
         //Constructor without MedicalHistory, in case you dont know your scouter id in the moment of instantiating
-        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, int doc, long id, List<string> guard, Education education, string exp)
+        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, List<string> em, int doc, long id, List<string> guard, Education education, string exp)
         {
             this.id = ++val;
             this.name = name;
@@ -150,6 +152,7 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = tel;
+            this.emailAddresses = (em != null) ? em : new List<string>();
             this.documentTypeID = doc;
             this.identification = id;
             this.guardiansId = guard;
@@ -168,6 +171,7 @@ namespace BusinessLogic
             this.address = address;
             this.city = city;
             this.telephones = new List<long>();
+            this.emailAddresses = new List<string>();
             this.documentTypeID = doc;
             this.guardiansId = new List<string>();
             this.medicalHistory = new MedicalHistory();

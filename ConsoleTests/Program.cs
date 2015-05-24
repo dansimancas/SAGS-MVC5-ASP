@@ -20,7 +20,7 @@ namespace ConsoleTests
             Console.WriteLine("\nGroup name: " + sg.Name);
             sg.Name = "micaela";
             Console.WriteLine(sg.ToString());*/
-            Teen t = new Teen("daniela", "simancas", "female", "torices", "cartagena", null, 123, 1050962143, null);
+            Teen t = new Teen("daniela", "simancas", "female", "torices", "cartagena", null, null, 123, 1050962143, null);
             Scouter s = new TeenToScouterAdapter(t);
             Console.WriteLine(s.ToString());
 

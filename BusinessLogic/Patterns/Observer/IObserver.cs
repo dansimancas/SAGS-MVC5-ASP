@@ -8,6 +8,7 @@ namespace BusinessLogic
 {
     public interface IObserver
     {
+        //TODO: Implementar el update en un nuevo thread.
         void Update(Activity activity, string message);
     }
 }
