@@ -3,103 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
+    [Table("Scouters")]
     public class Scouter : IMember
 
     {
         #region Atributes
 
         private int id;
-        private string name;
-        private string lastname;
-        private string gender;
-        private string address;
-        private string city;
-        private List<long> telephones;
-        private List<string> emailAddresses;
-        private int documentTypeID;
-        private long identification;        
-        private List<string> guardiansId;
-        private MedicalHistory medicalHistory;
         private static int val = 0;
-        //Education and work experience
-        private Education scouterEducation;
-        private string workExperience;
 
         #endregion
 
         #region Properties
 
+        [Key]
         public int Id
         {
             get { return id; }
+            set { id = ++val; }
         }
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public string Lastname
-        {
-            get { return lastname; }
-            set { lastname = value; }
-        }
-        public string Gender
-        {
-            get { return gender; }
-            set { gender = value; }
-        }
-        public string Address
-        {
-            get { return address; }
-            set { address = value; }
-        }
-        public string City
-        {
-            get { return city; }
-            set { city = value; }
-        }
-        public List<string> GuardiansId
-        {
-            get { return guardiansId; }
-            set { guardiansId = value; }
-        }
-        public MedicalHistory MedicalHistoryId
-        {
-            get { return medicalHistory; }
-        }
-        public List<long> Telephones
-        {
-            get { return telephones; }
-            set { telephones = value; }
-        }
-        public List<string> EmailAddresses
-        {
-            get { return emailAddresses; }
-            set { emailAddresses = value; }
-        }
-        public long Identification
-        {
-            get { return identification; }
-            set { identification = value; }
-        }
-        public int DocumentTypeID
-        {
-            get { return documentTypeID; }
-            set { documentTypeID = value; }
-        }
-        public virtual Education ScouterEducation
-        {
-            get { return scouterEducation; }
-            set { scouterEducation = value; }
-        }
-        public virtual string WorkExperience
-        {
-            get { return workExperience; }
-            set { workExperience = value; }
-        }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string Lastname { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public List<string> GuardiansId { get; set; }
+
+        [Required]
+        public MedicalHistory ScouterMedicalHistory { get; set; }
+
+        [Required]
+        public List<long> Telephones { get; set; }
+
+        [Required]
+        public List<string> EmailAddresses { get; set; }
+
+        [Required]
+        public long Identification { get; set; }
+
+        [Required]
+        public DocumentType DocumentTypeID { get; set; }
+
+        [Required]
+        public virtual EducationHistory ScouterEducation { get; set; }
+
+        [Required]
+        [StringLength(200)]
+        public virtual string WorkExperience { get; set; }
 
         #endregion
 
@@ -107,75 +74,58 @@ namespace BusinessLogic
 
         public Scouter() 
         {
-            this.id = ++val;
-            this.name = "Ángel";
-            this.lastname = "Jiménez";
-            this.gender = "Male";
-            this.address = "Ternera";
-            this.city = "Cartagena";
-            this.telephones = new List<long>();
-            this.emailAddresses = new List<string>();
-            this.documentTypeID = 1;
-            this.identification = 1234;
-            this.guardiansId = new List<string>();
-            this.scouterEducation = new Education();
-            this.medicalHistory = new MedicalHistory(this.id);
-            this.workExperience = "Programmer";
+            this.Id = ++val;
+            this.Name = "Ángel";
+            this.Lastname = "Jiménez";
+            this.Gender = "Male";
+            this.Address = "Ternera";
+            this.City = "Cartagena";
+            this.Telephones = new List<long>();
+            this.EmailAddresses = new List<string>();
+            this.DocumentTypeID = DocumentType.Cedula;
+            this.Identification = 1234;
+            this.GuardiansId = new List<string>();
+            this.ScouterEducation = new EducationHistory();
+            this.ScouterMedicalHistory = new MedicalHistory(this.Id);
+            this.WorkExperience = "Programmer";
         }
 
         //Constructor with all atributes
-        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, List<string> em, int doc, long id, List<string> guard, MedicalHistory med, Education education, string exp)
+        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, List<string> em, DocumentType doc, long id, List<string> guard, MedicalHistory med, EducationHistory education, string exp)
         {
-            this.id = ++val;
-            this.name = name;
-            this.lastname = lastname;
-            this.gender = gender;
-            this.address = address;
-            this.city = city;
-            this.telephones = tel;
-            this.emailAddresses = (em != null) ? em : new List<string>();
-            this.documentTypeID = doc;
-            this.identification = id;
-            this.guardiansId = guard;
-            this.medicalHistory = (med.MemberId == this.id) ? med : new MedicalHistory(this.id);
-            this.scouterEducation = education;
-            this.workExperience = exp;
+            this.Id = ++val;
+            this.Name = name;
+            this.Lastname = lastname;
+            this.Gender = gender;
+            this.Address = address;
+            this.City = city;
+            this.Telephones = tel;
+            this.EmailAddresses = (em != null) ? em : new List<string>();
+            this.DocumentTypeID = doc;
+            this.Identification = id;
+            this.GuardiansId = guard;
+            this.ScouterMedicalHistory = (med.MemberId == this.Id) ? med : new MedicalHistory(this.Id);
+            this.ScouterEducation = education;
+            this.WorkExperience = exp;
         }
 
         //Constructor without MedicalHistory, in case you dont know your scouter id in the moment of instantiating
-        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, List<string> em, int doc, long id, List<string> guard, Education education, string exp)
+        public Scouter(string name, string lastname, string gender, string address, string city, List<long> tel, List<string> em, DocumentType doc, long id, List<string> guard, EducationHistory education, string exp)
         {
-            this.id = ++val;
-            this.name = name;
-            this.lastname = lastname;
-            this.gender = gender;
-            this.address = address;
-            this.city = city;
-            this.telephones = tel;
-            this.emailAddresses = (em != null) ? em : new List<string>();
-            this.documentTypeID = doc;
-            this.identification = id;
-            this.guardiansId = guard;
-            this.medicalHistory = new MedicalHistory(this.id);
-            this.scouterEducation = education;
-            this.workExperience = exp;
-        }
-
-        //Constructor without elaborated or composed atributes
-        public Scouter(string name, string lastname, string gender, string address, string city, int doc)
-        {
-            this.id = ++val;
-            this.name = name;
-            this.lastname = lastname;
-            this.gender = gender;
-            this.address = address;
-            this.city = city;
-            this.telephones = new List<long>();
-            this.emailAddresses = new List<string>();
-            this.documentTypeID = doc;
-            this.guardiansId = new List<string>();
-            this.medicalHistory = new MedicalHistory();
-            this.scouterEducation = new Education();
+            this.Id = ++val;
+            this.Name = name;
+            this.Lastname = lastname;
+            this.Gender = gender;
+            this.Address = address;
+            this.City = city;
+            this.Telephones = tel;
+            this.EmailAddresses = (em != null) ? em : new List<string>();
+            this.DocumentTypeID = doc;
+            this.Identification = id;
+            this.GuardiansId = guard;
+            this.ScouterMedicalHistory = new MedicalHistory(this.Id);
+            this.ScouterEducation = education;
+            this.WorkExperience = exp;
         }
 
         #endregion
@@ -184,52 +134,52 @@ namespace BusinessLogic
         
         public virtual void addGuardian(string guardianId)
         {
-            if (guardiansId != null)
+            if (GuardiansId != null)
             {
-                this.guardiansId.Add(guardianId);
+                this.GuardiansId.Add(guardianId);
             }
             else
             {
-                this.guardiansId = new List<string>();
-                this.guardiansId.Add(guardianId);
+                this.GuardiansId = new List<string>();
+                this.GuardiansId.Add(guardianId);
             }
             
         }
 
         public virtual void setEducation(string level, string type, string obtainedTitle, string institution, int year, string city)
         {
-            Education temp = new Education(level, type, obtainedTitle, institution, year, city);
+            EducationHistory temp = new EducationHistory(level, type, obtainedTitle, institution, year, city);
         }
 
         public virtual void addWorkExperience(string ex)
         {
-            this.workExperience = (this.workExperience == "") ? ex : ". " + ex;
+            this.WorkExperience = (this.WorkExperience == "") ? ex : ". " + ex;
         }
 
         public virtual void addTelephone(long t)
         {
-            if (telephones != null)
+            if (Telephones != null)
             {
-                telephones.Add(t);
+                Telephones.Add(t);
             }
             else
             {
-                telephones = new List<long>();
-                telephones.Add(t);
+                Telephones = new List<long>();
+                Telephones.Add(t);
             }
             
         }
 
         public void addEmailAddress(string e)
         {
-            if (emailAddresses != null)
+            if (EmailAddresses != null)
             {
-                emailAddresses.Add(e);
+                EmailAddresses.Add(e);
             }
             else
             {
-                emailAddresses = new List<string>();
-                emailAddresses.Add(e);
+                EmailAddresses = new List<string>();
+                EmailAddresses.Add(e);
             }
         }
 
@@ -265,7 +215,7 @@ namespace BusinessLogic
         {
             Console.WriteLine("\nSCOUTERS/" + activity.Name + " notification: " + message + ".");
             string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
-            SendEmail send = new SendEmail(this.emailAddresses, "Activity: " + activity.Name + " Notification", body);
+            SendEmail send = new SendEmail(this.EmailAddresses, "Activity: " + activity.Name + " Notification", body);
         }
 
         #endregion
@@ -274,38 +224,19 @@ namespace BusinessLogic
 
         public override string ToString()
         {
-            return "\nScouter:\nId: " + this.id +
-                "\nName: " + this.name +
-                "\nLast name: " + this.gender +
-                "\nAddress: " + this.address +
-                "\nCity: " + this.city +
-                "\nTelephones: " + printTelephones(telephones) +
-                "\nDocument type: " + this.documentTypeID +
-                "\nIdentification: " + this.identification +
-                "\nGuardians : " + printStringList(guardiansId) +
-                "\nMedical History ID: " + this.medicalHistory.Id;
+            return "\nScouter:\nId: " + this.Id +
+                "\nName: " + this.Name +
+                "\nLast name: " + this.Gender +
+                "\nAddress: " + this.Address +
+                "\nCity: " + this.City +
+                "\nTelephones: " + printTelephones(Telephones) +
+                "\nDocument type: " + this.DocumentTypeID +
+                "\nIdentification: " + this.Identification +
+                "\nGuardians : " + printStringList(GuardiansId) +
+                "\nMedical History ID: " + this.ScouterMedicalHistory.Id;
         }
 
         #endregion
 
-        public struct Education
-        {
-            string level; //highschool, undergraduate, graduate
-            string type; // classic, comercial, technical, technologic, professional, specialization, master, doctorate
-            string obtainedTitle;
-            string institution;
-            int year;
-            string city;
-
-            public Education(string l, string t, string o, string i, int y, string c)
-            {
-                level = l;
-                type = t;
-                obtainedTitle = o;
-                institution = i;
-                year = y;
-                city = c;
-            }
-        }
     }
 }

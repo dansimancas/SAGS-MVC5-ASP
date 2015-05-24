@@ -43,6 +43,7 @@
     <Compile Include="Entities\Activity.cs" />
     <Compile Include="Entities\DocumentType.cs" />
     <Compile Include="Entities\EducationalSection.cs" />
+    <Compile Include="Entities\EducationHistory.cs" />
     <Compile Include="Entities\Guardian.cs" />
     <Compile Include="Entities\MedicalHistory.cs" />
     <Compile Include="Entities\Scouter.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Entities\Unit.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\IMember.cs" />
+    <Compile Include="Entities\UserRole.cs" />
     <Compile Include="Patterns\Adapter\GuardianToScouterAdapter.cs" />
     <Compile Include="Patterns\Adapter\ScouterToGuardianAdapter.cs" />
     <Compile Include="Patterns\Adapter\TeenToScouterAdapter.cs" />
@@ -63,7 +65,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\DocumentTypeRepository.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +74,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

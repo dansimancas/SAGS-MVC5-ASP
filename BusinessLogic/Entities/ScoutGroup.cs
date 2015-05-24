@@ -4,177 +4,102 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLogic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
+    [Table("Scout Group")]
     public class ScoutGroup
     {
         #region Atributes
-        private static ScoutGroup instance;
-        private string name;
-        private int number;
-        private string city;
-        private string state;
-        private string country;
-        private string address;
-        private List<long> telephone;
-        private string sponsor;
+        private int id;
+        private static ScoutGroup scoutGroupInstance;
+
         #endregion
 
         #region Properties
-        public string Name
+
+        [Key]
+        public int Id
         {
-            get { return name; }
-            set { name = value; }
+            get { return id; }
+            set { id = 0; }
         }
-        public int Number
-        {
-            get { return number; }
-            set { number = value; }
-        }
-        public string State
-        {
-            get { return state; }
-            set { state = value; }
-        }
-        public string City
-        {
-            get { return city; }
-            set { city = value; }
-        }
-        public string Country
-        {
-            get { return country; }
-            set { country = value; }
-        }
-        public string Address
-        {
-            get { return address; }
-            set { address = value; }
-        }
-        public List<long> Telephone
-        {
-            get { return telephone; }
-            set { telephone = value; }
-        }
-        public string Sponsor
-        {
-            get { return sponsor; }
-            set { sponsor = value; }
-        }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public int Number { get; set; }
+
+        [Required]
+        public string State { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string Country { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        [Required]
+        public List<long> Telephones { get; set; }
+
+        [Required]
+        public string Sponsor { get; set; }
+
         #endregion
 
         #region Constructors
 
         public ScoutGroup()
         {
-            try
-            {
-                this.name = Settings.Default["name"].ToString();
-            }
-            catch (Exception)
-            {
-                this.name = "";
-                
-            }
+            this.Id = 0;
+            this.Name = "Los caminantes";
+            this.Number = 123;
+            this.State = "Bolívar";
+            this.City = "Cartagena";
+            this.Country = "Colombia";
+            this.Address = "Manga";
+            this.Telephones = new List<long>() { 6565656, 3171526390 };
+            this.Sponsor = "Ángel Jiménez";
 
-            try
-            {
-                this.number = Convert.ToInt32(Settings.Default["number"].ToString());
-            }
-            catch (Exception)
-            {
+        }
 
-                this.number = 0;
-            }
-
-            try
-            {
-                this.city = Settings.Default["city"].ToString();
-            }
-            catch (Exception)
-            {
-
-                this.city = "";
-            }
-
-            try
-            {
-                this.state = Settings.Default["state"].ToString();
-            }
-            catch (Exception)
-            {
-
-                this.state = "";
-            }
-
-            try
-            {
-                this.country = Settings.Default["country"].ToString();
-            }
-            catch (Exception)
-            {
-
-                this.country = "";
-            }
-
-
-            try
-            {
-                this.address = Settings.Default["address"].ToString();
-            }
-            catch (Exception)
-            {
-
-                this.address = "";
-            }
-
-            try
-            {
-                this.sponsor = Settings.Default["sponsor"].ToString();
-            }
-            catch (Exception)
-            {
-
-                this.sponsor = "";
-            }
-             
-            this.telephone = null;
-                
-            
+        public ScoutGroup(string name, int number, string state, string city, string country, string address, List<long> tels, string sponsor)
+        {
+            this.Id = 0;
+            this.Name = name;
+            this.Number = number;
+            this.State = state;
+            this.City = city;
+            this.Country = country;
+            this.Address = address;
+            this.Telephones = (tels != null) ? tels : new List<long>();
+            this.Sponsor = sponsor;
         }
         #endregion
 
         #region Methods
         public static ScoutGroup getInstance()
         {
-            if (instance == null)
-                instance = new ScoutGroup();
-            return instance;
+            if (scoutGroupInstance == null)
+                scoutGroupInstance = new ScoutGroup();
+            return scoutGroupInstance;
         }
 
         public void editScoutGroupData(string name, int number, string city, string state, string country, string address, string sponsor)
         {
-            instance.Name = name;
-            instance.Number = number;
-            instance.City = city;
-            instance.State = state;
-            instance.Country = country;
-            instance.Address = address;
-            instance.Sponsor = sponsor;
-        }
-
-        public void save()
-        {
-            Settings.Default["name"] = this.name;
-            Settings.Default["number"] = this.number;
-            Settings.Default["city"] = this.city;
-            Settings.Default["state"] = this.state;
-            Settings.Default["country"] = this.country;
-            Settings.Default["address"] = this.address;
-            this.telephone = null;
-            Settings.Default["sponsor"] = this.sponsor;
-            Settings.Default.Save();
+            scoutGroupInstance.Name = name;
+            scoutGroupInstance.Number = number;
+            scoutGroupInstance.City = city;
+            scoutGroupInstance.State = state;
+            scoutGroupInstance.Country = country;
+            scoutGroupInstance.Address = address;
+            scoutGroupInstance.Sponsor = sponsor;
         }
 
         public string printTelephoneList(List<long> tels)
@@ -197,16 +122,17 @@ namespace BusinessLogic
 
         public override string ToString()
         {
-            return "\nScout Group:\nName: " + instance.name +
-                "\nNumber: " + instance.number +
-                "\nCity: " + instance.city +
-                "\nState: " + instance.state +
-                "\nCountry: " + instance.country +
-                "\nAddress: " + instance.address +
-                "\nTelephones: " + printTelephoneList(instance.telephone) +
-                "\nSponsor: " + instance.sponsor;
+            return "\nScout Group: \nId: " + scoutGroupInstance.Id +
+                "\nName: " + scoutGroupInstance.Name +
+                "\nNumber: " + scoutGroupInstance.Number +
+                "\nCity: " + scoutGroupInstance.City +
+                "\nState: " + scoutGroupInstance.State +
+                "\nCountry: " + scoutGroupInstance.Country +
+                "\nAddress: " + scoutGroupInstance.Address +
+                "\nTelephones: " + printTelephoneList(scoutGroupInstance.Telephones) +
+                "\nSponsor: " + scoutGroupInstance.Sponsor;
         }
-        
+
         #endregion
     }
 }

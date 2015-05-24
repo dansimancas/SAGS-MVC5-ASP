@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
@@ -10,46 +12,39 @@ namespace BusinessLogic
     {
         #region Atributes
 
-        private string id;
-        private string name;
-        private string description;
-        private string sectionId;
+        private int id;
+        private static int val = 0;
 
         #endregion
 
         #region Properties
 
-        public string Id
+        [Key]
+        public int Id
         {
             get { return id; }
-            set { id = value; }
+            set { id = ++val; }
         }
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public string Description
-        {
-            get { return description; }
-            set { description = value; }
-        }
-        public string SectionId
-        {
-            get { return sectionId; }
-            set { sectionId = value; }
-        }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+        [Required]
+        public string SectionId { get; set; }
 
         #endregion
 
         #region Constructors
 
-        public Unit(string id, string name, string description, string sectionId)
+        public Unit(string name, string description, string sectionId)
         {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.sectionId = sectionId;
+            this.Id = ++val;
+            this.Name = name;
+            this.Description = description;
+            this.SectionId = sectionId;
         }
 
         #endregion

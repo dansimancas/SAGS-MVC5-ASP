@@ -18,7 +18,7 @@ namespace BusinessLogic
 
         public GuardianToScouterAdapter(Guardian g)
             : base(g.Name, g.Lastname, g.Gender, g.Address, g.City, g.Telephones, g.EmailAddresses,
-            g.DocumentTypeID, g.Identification, null, new MedicalHistory(), new Education(), "")
+            g.DocumentTypeID, g.Identification, null, new MedicalHistory(), new EducationHistory(), "")
         {
             guardianInstance = g;
         }
@@ -28,7 +28,7 @@ namespace BusinessLogic
 
         #region Methods
 
-        public override Education ScouterEducation
+        public override EducationHistory ScouterEducation
         {
             get { return this.ScouterEducation; }
             set { ScouterEducation = value; }
@@ -46,7 +46,7 @@ namespace BusinessLogic
 
         public override void setEducation(string level, string type, string obtainedTitle, string institution, int year, string city)
         {
-            Education temp = new Education(level, type, obtainedTitle, institution, year, city);
+            EducationHistory temp = new EducationHistory(level, type, obtainedTitle, institution, year, city);
         }
 
         public override void addWorkExperience(string ex)

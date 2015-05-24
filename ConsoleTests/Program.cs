@@ -16,12 +16,11 @@ namespace ConsoleTests
             Console.WriteLine(sg.ToString());
             sg.editScoutGroupData("las aguilas negras", 456, "medellin", "antioquia", "colombia", "itagui", "daniela");
             Console.WriteLine(sg.ToString());
-            sg.save();
             /*
             Console.WriteLine("\nGroup name: " + sg.Name);
             sg.Name = "micaela";
             Console.WriteLine(sg.ToString());*/
-            Teen t = new Teen("daniela", "simancas", "female", "torices", "cartagena", null, null, 123, 1050962143, null);
+            Teen t = new Teen("daniela", "simancas", "female", "torices", "cartagena", null, null, DocumentType.Cedula, 1050962143, null);
             Scouter s = new TeenToScouterAdapter(t);
             Console.WriteLine(s.ToString());
 

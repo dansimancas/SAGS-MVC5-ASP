@@ -3,64 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
+    [Table("Medical histories")]
     public class MedicalHistory
     {
         #region Atributes
 
         private int id;
-        private List<string> diseases;
-        private List<string> medicineIntolerances;
-        private List<string> allergies;
-        private List<string> medicalInterventions;
-        private string observations;
-        private int memberId;
         private static int val = 0;
         
         #endregion
 
         #region Properties
 
-        public int Id { 
+        [Key]
+        public int Id
+        {
             get { return id; }
+            set { id = ++val; }
         }
 
-        public List<string> Diseases
-        {
-            get { return diseases; }
-            set { diseases = value; }
-        }
+        [Required]
+        public int MemberId { get; set; }
 
-        public List<string> MedicineIntolerances
-        {
-            get { return medicineIntolerances; }
-            set { medicineIntolerances = value; }
-        }
+        [Required]
+        public List<string> Diseases { get; set; }
 
-        public List<string> Allergies
-        {
-            get { return allergies; }
-            set { allergies = value; }
-        }
+        [Required]
+        public List<string> MedicineIntolerances { get; set; }
 
-        public List<string> MedicalInterventions
-        {
-            get { return medicalInterventions; }
-            set { medicalInterventions = value; }
-        }
+        [Required]
+        public List<string> Allergies { get; set; }
 
-        public string Observations
-        {
-            get { return observations; }
-            set { observations = value; }
-        }
+        [Required]
+        public List<string> MedicalInterventions { get; set; }
 
-        public int MemberId
-        {
-            get { return memberId; }
-        }
+        [Required]
+        [StringLength(200)]
+        public string Observations { get; set; }
 
         #endregion
 
@@ -68,25 +52,25 @@ namespace BusinessLogic
 
         public MedicalHistory()
         {
-            this.id = ++val;
-            this.memberId = 1234;
-            this.diseases = new List<string>();
-            this.medicineIntolerances = new List<string>();
-            this.allergies = new List<string>();
-            this.medicalInterventions = new List<string>();
-            this.observations = "";
+            this.Id = ++val;
+            this.MemberId = 1234;
+            this.Diseases = new List<string>();
+            this.MedicineIntolerances = new List<string>();
+            this.Allergies = new List<string>();
+            this.MedicalInterventions = new List<string>();
+            this.Observations = "";
         }
 
         public MedicalHistory(int memberId)
         {
-            this.id = ++val;
-            this.memberId = memberId;
-            this.medicineIntolerances = new List<string>();
-            this.diseases = new List<string>();
-            this.medicineIntolerances = new List<string>();
-            this.allergies = new List<string>();
-            this.medicalInterventions = new List<string>();
-            this.observations = "";
+            this.Id = ++val;
+            this.MemberId = memberId;
+            this.MedicineIntolerances = new List<string>();
+            this.Diseases = new List<string>();
+            this.MedicineIntolerances = new List<string>();
+            this.Allergies = new List<string>();
+            this.MedicalInterventions = new List<string>();
+            this.Observations = "";
         }
 
         #endregion
