@@ -164,19 +164,6 @@ namespace BusinessLogic
             instance.Sponsor = sponsor;
         }
 
-        public void save()
-        {
-            Settings.Default["name"] = this.name;
-            Settings.Default["number"] = this.number;
-            Settings.Default["city"] = this.city;
-            Settings.Default["state"] = this.state;
-            Settings.Default["country"] = this.country;
-            Settings.Default["address"] = this.address;
-            this.telephone = null;
-            Settings.Default["sponsor"] = this.sponsor;
-            Settings.Default.Save();
-        }
-
         public string printTelephoneList(List<long> tels)
         {
             string result = "";
