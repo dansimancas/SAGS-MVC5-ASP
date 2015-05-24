@@ -53,7 +53,7 @@ namespace BusinessLogic
         public List<string> EmailAddresses { get; set; }
 
         [Required]
-        public DocumentType DocumentTypeID { get; set; }
+        public DocumentType Document { get; set; }
 
         #endregion
 
@@ -69,7 +69,7 @@ namespace BusinessLogic
             this.City = "Cartagena";
             this.Telephones = new List<long>();
             this.EmailAddresses = new List<string>();
-            this.DocumentTypeID = DocumentType.Cedula;
+            this.Document = DocumentType.Cedula;
             this.Identification = 1050692143;
         }
 
@@ -83,7 +83,7 @@ namespace BusinessLogic
             this.City = city;
             this.Telephones = (tel != null) ? tel : new List<long>();
             this.EmailAddresses = (em != null) ? em : new List<string>();
-            this.DocumentTypeID = doc;
+            this.Document = doc;
             this.Identification = ident;
         }
 
@@ -135,7 +135,7 @@ namespace BusinessLogic
                 "\nAddress: " + this.Address +
                 "\nCity: " + this.City +
                 "\nTelephones: " + printTelephones(Telephones) +
-                "\nDocument type: " + this.DocumentTypeID +
+                "\nDocument type: " + this.Document +
                 "\nIdentification: " + this.Identification;
         }
 

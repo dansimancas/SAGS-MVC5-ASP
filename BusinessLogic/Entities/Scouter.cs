@@ -59,7 +59,7 @@ namespace BusinessLogic
         public long Identification { get; set; }
 
         [Required]
-        public DocumentType DocumentTypeID { get; set; }
+        public DocumentType Document { get; set; }
 
         [Required]
         public virtual EducationHistory ScouterEducation { get; set; }
@@ -82,7 +82,7 @@ namespace BusinessLogic
             this.City = "Cartagena";
             this.Telephones = new List<long>();
             this.EmailAddresses = new List<string>();
-            this.DocumentTypeID = DocumentType.Cedula;
+            this.Document = DocumentType.Cedula;
             this.Identification = 1234;
             this.GuardiansId = new List<string>();
             this.ScouterEducation = new EducationHistory();
@@ -101,7 +101,7 @@ namespace BusinessLogic
             this.City = city;
             this.Telephones = tel;
             this.EmailAddresses = (em != null) ? em : new List<string>();
-            this.DocumentTypeID = doc;
+            this.Document = doc;
             this.Identification = id;
             this.GuardiansId = guard;
             this.ScouterMedicalHistory = (med.MemberId == this.Id) ? med : new MedicalHistory(this.Id);
@@ -120,7 +120,7 @@ namespace BusinessLogic
             this.City = city;
             this.Telephones = tel;
             this.EmailAddresses = (em != null) ? em : new List<string>();
-            this.DocumentTypeID = doc;
+            this.Document = doc;
             this.Identification = id;
             this.GuardiansId = guard;
             this.ScouterMedicalHistory = new MedicalHistory(this.Id);
@@ -230,7 +230,7 @@ namespace BusinessLogic
                 "\nAddress: " + this.Address +
                 "\nCity: " + this.City +
                 "\nTelephones: " + printTelephones(Telephones) +
-                "\nDocument type: " + this.DocumentTypeID +
+                "\nDocument type: " + this.Document +
                 "\nIdentification: " + this.Identification +
                 "\nGuardians : " + printStringList(GuardiansId) +
                 "\nMedical History ID: " + this.ScouterMedicalHistory.Id;

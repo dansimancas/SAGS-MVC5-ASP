@@ -19,7 +19,7 @@ namespace BusinessLogic
         string City { get; set; }
         List<long> Telephones { get; set; }
         List<string> EmailAddresses { get; set; }
-        DocumentType DocumentTypeID { get; set; }
+        DocumentType Document { get; set; }
         long Identification { get; set; }
 
         #endregion

@@ -48,7 +48,7 @@ namespace BusinessLogic
         public List<string> EmailAddresses { get; set; }
 
         [Required]
-        public DocumentType DocumentTypeID { get; set; }
+        public DocumentType Document { get; set; }
 
         [Required]
         public long Identification { get; set; }
@@ -73,7 +73,7 @@ namespace BusinessLogic
             this.City = "Cartagena";
             this.Telephones = new List<long>();
             this.EmailAddresses = new List<string>();
-            this.DocumentTypeID = DocumentType.Cedula;
+            this.Document = DocumentType.Cedula;
             this.Identification = 1050962143;
             this.TeenMedicalHistory = new MedicalHistory(this.Id);
         }
@@ -88,7 +88,7 @@ namespace BusinessLogic
             this.City = city;
             this.Telephones = tels;
             this.EmailAddresses = (em != null) ? em : new List<string>();
-            this.DocumentTypeID = doc;
+            this.Document = doc;
             this.Identification = id;
             this.GuardiansId = guardians;
             //Ensuring that the medical history is his/her own.
@@ -106,7 +106,7 @@ namespace BusinessLogic
             this.City = city;
             this.Telephones = tels;
             this.EmailAddresses = (em != null) ? em : new List<string>();
-            this.DocumentTypeID = doc;
+            this.Document = doc;
             this.Identification = id;
             this.GuardiansId = guardians;
             //Ensuring that the medical history is his/her own.
@@ -182,7 +182,7 @@ namespace BusinessLogic
                 "\nAddress: " + this.Address +
                 "\nCity: " + this.City +
                 "\nTelephones: " + printTelephones(Telephones) +
-                "\nDocument type: " + this.DocumentTypeID +
+                "\nDocument type: " + this.Document +
                 "\nIdentification: " + this.Identification +
                 "\nGuardians : " + printStringList(GuardiansId) +
                 "\nMedical History ID: " + this.TeenMedicalHistory.Id;
