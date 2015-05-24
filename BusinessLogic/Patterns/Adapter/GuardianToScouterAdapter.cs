@@ -18,7 +18,7 @@ namespace BusinessLogic
 
         public GuardianToScouterAdapter(Guardian g)
             : base(g.Name, g.Lastname, g.Gender, g.Address, g.City, g.Telephones, g.EmailAddresses,
-            g.DocumentTypeID, g.Identification, null, new MedicalHistory(), new EducationHistory(), "")
+            g.Document, g.Identification, null, new MedicalHistory(), new EducationHistory(), "")
         {
             guardianInstance = g;
         }

@@ -16,11 +16,7 @@ namespace BusinessLogic
 
         #region Constructors
 
-        public TeenToScouterAdapter(Teen t) : base(t.Name, t.Lastname, t.Gender, t.Address, t.City, t.Telephones, t.EmailAddresses,
-            t.DocumentTypeID, t.Identification, t.GuardiansId, t.TeenMedicalHistory, new EducationHistory(), "")
-        {
-            teenInstance = t;
-        }
+       
 
         #endregion
 

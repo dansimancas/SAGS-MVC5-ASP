@@ -17,7 +17,7 @@ namespace BusinessLogic
         #region Constructors
 
         public ScouterToGuardianAdapter(Scouter s) : base(s.Name, s.Lastname, s.Gender, s.Address, s.City, s.Telephones, s.EmailAddresses,
-            s.DocumentTypeID, s.Identification)
+            s.Document, s.Identification)
         {
             scouterInstance = s;
         }
