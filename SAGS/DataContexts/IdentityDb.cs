@@ -7,7 +7,7 @@ using System.Web;
 using System.Data.Entity;
 using System.Text;
 
-namespace SAGS.DataContext
+namespace SAGS.DataContexts
 {
     public class IdentityDb : IdentityDbContext<ApplicationUser>
     {

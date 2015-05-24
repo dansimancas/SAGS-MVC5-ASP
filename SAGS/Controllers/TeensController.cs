@@ -7,111 +7,111 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
-using SAGS.Models;
+using SAGS.DataContext;
 
 namespace SAGS.Controllers
 {
-    public class DocumentTypesController : Controller
+    public class TeensController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private TeensDb db = new TeensDb();
 
-        // GET: /DocumentTypes/
+        // GET: /Teens/
         public ActionResult Index()
         {
-            return View(db.DocumentTypes.ToList());
+            return View(db.Teens.ToList());
         }
 
-        // GET: /DocumentTypes/Details/5
+        // GET: /Teens/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocumentType documentType = db.DocumentTypes.Find(id);
-            if (documentType == null)
+            Teen teen = db.Teens.Find(id);
+            if (teen == null)
             {
                 return HttpNotFound();
             }
-            return View(documentType);
+            return View(teen);
         }
 
-        // GET: /DocumentTypes/Create
+        // GET: /Teens/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: /DocumentTypes/Create
+        // POST: /Teens/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Name")] DocumentType documentType)
+        public ActionResult Create([Bind(Include="Id,Name,Lastname,Gender,Address,City,DocumentTypeID,Identification")] Teen teen)
         {
             if (ModelState.IsValid)
             {
-                db.DocumentTypes.Add(documentType);
+                db.Teens.Add(teen);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(documentType);
+            return View(teen);
         }
 
-        // GET: /DocumentTypes/Edit/5
+        // GET: /Teens/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocumentType documentType = db.DocumentTypes.Find(id);
-            if (documentType == null)
+            Teen teen = db.Teens.Find(id);
+            if (teen == null)
             {
                 return HttpNotFound();
             }
-            return View(documentType);
+            return View(teen);
         }
 
-        // POST: /DocumentTypes/Edit/5
+        // POST: /Teens/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Name")] DocumentType documentType)
+        public ActionResult Edit([Bind(Include="Id,Name,Lastname,Gender,Address,City,DocumentTypeID,Identification")] Teen teen)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(documentType).State = EntityState.Modified;
+                db.Entry(teen).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(documentType);
+            return View(teen);
         }
 
-        // GET: /DocumentTypes/Delete/5
+        // GET: /Teens/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocumentType documentType = db.DocumentTypes.Find(id);
-            if (documentType == null)
+            Teen teen = db.Teens.Find(id);
+            if (teen == null)
             {
                 return HttpNotFound();
             }
-            return View(documentType);
+            return View(teen);
         }
 
-        // POST: /DocumentTypes/Delete/5
+        // POST: /Teens/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DocumentType documentType = db.DocumentTypes.Find(id);
-            db.DocumentTypes.Remove(documentType);
+            Teen teen = db.Teens.Find(id);
+            db.Teens.Remove(teen);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
