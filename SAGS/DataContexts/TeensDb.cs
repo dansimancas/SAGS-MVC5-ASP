@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SAGS.DataContexts.TeenMigrations;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace SAGS.DataContext
         public TeensDb()
             : base("DefaultConnection")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TeensDb, Configuration>());
         }
 
         public System.Data.Entity.DbSet<BusinessLogic.Teen> Teens { get; set; }

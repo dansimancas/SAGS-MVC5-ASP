@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Text;
+using SAGS.DataContexts.IdentityMigrations;
 
 namespace SAGS.DataContexts
 {
@@ -14,6 +15,7 @@ namespace SAGS.DataContexts
         public IdentityDb()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<IdentityDb, Configuration>());
         }
 
         public static IdentityDb Create()
