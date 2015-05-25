@@ -31,6 +31,11 @@ namespace ConsoleTests
             a1.Name = "Lanzamiento de CEIS";
 
             Console.ReadLine();*/
+            DateTime d = DateTime.Now;
+            Console.WriteLine(d.ToString());
+            Console.ReadLine();
+
+
         }
     }
 }
