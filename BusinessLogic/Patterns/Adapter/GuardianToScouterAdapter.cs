@@ -17,42 +17,23 @@ namespace BusinessLogic
         #region Constructors
 
         public GuardianToScouterAdapter(Guardian g)
-            : base(g.Name, g.Lastname, g.Gender, g.Address, g.City, g.Telephones, g.EmailAddresses,
-            g.Document, g.Identification, null, new MedicalHistory(), new EducationHistory(), "")
         {
             guardianInstance = g;
+            base.Name = g.Name;
+            base.Lastname = g.Lastname;
+            base.Gender = g.Gender;
+            base.Address = g.Address;
+            base.City = g.City;
+            base.Telephones = g.Telephones;
+            base.EmailAddresses = g.EmailAddresses;
+            base.Document = g.Document;
+            base.Identification = g.Identification;
+            base.GuardiansId = new List<string>();
+            base.ScouterMedicalHistory = new MedicalHistory();
+            base.ScouterEducation = new EducationHistory();
+            base.WorkExperience = "";
         }
 
-
-        #endregion
-
-        #region Methods
-
-        public override EducationHistory ScouterEducation
-        {
-            get { return this.ScouterEducation; }
-            set { ScouterEducation = value; }
-        }
-        public override string WorkExperience
-        {
-            get { return WorkExperience; }
-            set { WorkExperience = value; }
-        }
-
-        public override void addGuardian(string guardianId)
-        {
-            this.GuardiansId.Add(guardianId);
-        }
-
-        public override void setEducation(string level, string type, string obtainedTitle, string institution, int year, string city)
-        {
-            EducationHistory temp = new EducationHistory(level, type, obtainedTitle, institution, year, city);
-        }
-
-        public override void addWorkExperience(string ex)
-        {
-            WorkExperience = (WorkExperience == "") ? ex : ". " + ex;  
-        }
 
         #endregion
     }

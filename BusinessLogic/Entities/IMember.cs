@@ -8,7 +8,6 @@ namespace BusinessLogic
 {
     interface IMember : IObserver
     {
-
         #region Properties
 
         int Id { get; }
@@ -17,19 +16,11 @@ namespace BusinessLogic
         string Gender { get; set; }
         string Address { get; set; }
         string City { get; set; }
-        List<long> Telephones { get; set; }
-        List<string> EmailAddresses { get; set; }
+        string Telephones { get; set; }
+        string EmailAddresses { get; set; }
         DocumentType Document { get; set; }
         long Identification { get; set; }
 
-        #endregion
-
-        #region Methods
-
-        void addTelephone(long t);
-        void addEmailAddress(string e);
-        //protected string printTelephones(List<long> l);
-        
         #endregion
     }
 }

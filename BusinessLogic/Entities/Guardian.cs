@@ -11,22 +11,11 @@ namespace BusinessLogic
     [Table("Guardians")]
     public class Guardian : IMember
     {
-        #region Atributes
-
-        private int id;
-        private static int val = 0;
-
-        #endregion
-
         #region Properties
 
         //TODO: Agregar propiedades inherentes a los guardianes.
         [Key]
-        public int Id
-        {
-            get { return id; }
-            set { id = ++val; }
-        }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -47,73 +36,17 @@ namespace BusinessLogic
         public long Identification { get; set; }
 
         [Required]
-        public List<long> Telephones { get; set; }
+        public string Telephones { get; set; }
 
         [Required]
-        public List<string> EmailAddresses { get; set; }
+        public string EmailAddresses { get; set; }
 
         [Required]
         public DocumentType Document { get; set; }
 
         #endregion
 
-        #region Constructors
-
-        public Guardian()
-        {
-            this.Id = ++val;
-            this.Name = "Daniela";
-            this.Lastname = "Simancas Mateus";
-            this.Gender = "Femenine";
-            this.Address = "Torices";
-            this.City = "Cartagena";
-            this.Telephones = new List<long>();
-            this.EmailAddresses = new List<string>();
-            this.Document = DocumentType.Cedula;
-            this.Identification = 1050692143;
-        }
-
-        public Guardian(string name, string lastname, string gender, string address, string city, List<long> tel, List<string> em, DocumentType doc, long ident)
-        {
-            this.Id = ++val;
-            this.Name = name;
-            this.Lastname = lastname;
-            this.Gender = gender;
-            this.Address = address;
-            this.City = city;
-            this.Telephones = (tel != null) ? tel : new List<long>();
-            this.EmailAddresses = (em != null) ? em : new List<string>();
-            this.Document = doc;
-            this.Identification = ident;
-        }
-
-        #endregion
-
         #region Methods
-
-        public void addTelephone(long t)
-        {
-            Telephones.Add(t);
-        }
-
-        public void addEmailAddress(string e)
-        {
-            EmailAddresses.Add(e);
-        }
-
-        protected string printTelephones(List<long> tels)
-        {
-            if (tels != null && tels.Count > 0)
-            {
-                string value = "";
-                foreach (long o in tels)
-                {
-                    value += o + ", ";
-                }
-                return value.Substring(0, value.Length - 2);
-            }
-            else return "There are no telephone numbers asigned yet.";
-        }
 
         public void Update(Activity activity, string message)
         {
@@ -134,7 +67,7 @@ namespace BusinessLogic
                 "\nLast name: " + this.Gender +
                 "\nAddress: " + this.Address +
                 "\nCity: " + this.City +
-                "\nTelephones: " + printTelephones(Telephones) +
+                "\nTelephones: " + this.Telephones +
                 "\nDocument type: " + this.Document +
                 "\nIdentification: " + this.Identification;
         }

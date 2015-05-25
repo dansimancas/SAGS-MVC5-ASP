@@ -16,10 +16,18 @@ namespace BusinessLogic
 
         #region Constructors
 
-        public ScouterToGuardianAdapter(Scouter s) : base(s.Name, s.Lastname, s.Gender, s.Address, s.City, s.Telephones, s.EmailAddresses,
-            s.Document, s.Identification)
+        public ScouterToGuardianAdapter(Scouter s)
         {
             scouterInstance = s;
+            base.Name = s.Name;
+            base.Lastname = s.Lastname;
+            base.Gender = s.Gender;
+            base.Address = s.Address;
+            base.City = s.City;
+            base.Telephones = s.Telephones;
+            base.EmailAddresses = s.EmailAddresses;
+            base.Document = s.Document;
+            base.Identification = s.Identification;
         }
 
         #endregion
