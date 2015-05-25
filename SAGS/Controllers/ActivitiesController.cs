@@ -16,34 +16,7 @@ namespace SAGS.Controllers
     public class ActivitiesController : Controller
     {
         private ActivityDb db = new ActivityDb();
-        private TeensDb db1 = new TeensDb();
-        private ScoutersDb db2 = new ScoutersDb();
-        private GuardiansDb db3 = new GuardiansDb();
-
-        public ActivitiesController()
-        {
-            IEnumerable<Teen> Observers1 = db1.Teens.ToList();
-            IEnumerable<Scouter> Observers2 = db2.Scouters.ToList();
-            IEnumerable<Guardian> Observers3 = db3.Guardians.ToList();
-
-            Activity activity = new Activity();
-
-            foreach (var item in Observers1)
-            {
-                activity.RegisterObserver(item);
-            }
-
-            foreach (var item in Observers2)
-            {
-                activity.RegisterObserver(item);
-            }
-
-            foreach (var item in Observers3)
-            {
-                activity.RegisterObserver(item);
-            }
-                         
-        }
+       
 
         // GET: /Activities/
         public ActionResult Index()
