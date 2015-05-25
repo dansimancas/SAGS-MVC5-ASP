@@ -13,7 +13,7 @@ namespace SAGS.Controllers
 {
     public class GuardiansController : Controller
     {
-        private GuardianDB db = new GuardianDB();
+        private GuardiansDb db = new GuardiansDb();
 
         // GET: /Guardians/
         public ActionResult Index()

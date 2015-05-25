@@ -5,7 +5,7 @@ namespace SAGS.DataContexts.GuardianMigrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SAGS.DataContexts.GuardianDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<SAGS.DataContexts.GuardiansDb>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@ namespace SAGS.DataContexts.GuardianMigrations
             MigrationsDirectory = @"DataContexts\GuardiansMigrations";
         }
 
-        protected override void Seed(SAGS.DataContexts.GuardianDB context)
+        protected override void Seed(SAGS.DataContexts.GuardiansDb context)
         {
             //  This method will be called after migrating to the latest version.
 

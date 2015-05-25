@@ -8,12 +8,12 @@ using System.Web;
 
 namespace SAGS.DataContexts
 {
-    public class GuardianDB : DbContext
+    public class GuardiansDb : DbContext
     {
-        public GuardianDB()
+        public GuardiansDb()
             : base("DefaultConnection")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GuardianDB, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GuardiansDb, Configuration>());
         }
 
         public System.Data.Entity.DbSet<BusinessLogic.Guardian> Guardians { get; set; }
