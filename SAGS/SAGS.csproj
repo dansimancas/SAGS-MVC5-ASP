@@ -166,10 +166,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TeensController.cs" />
-    <Compile Include="DataContexts\GuardianDB.cs" />
     <Compile Include="DataContexts\GuardianMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\GuardiansDb.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\ScoutersDb.cs" />
+    <Compile Include="DataContexts\ScoutersMigrations\Configuration.cs" />
     <Compile Include="DataContexts\TeenMigrations\Configuration.cs" />
     <Compile Include="DataContexts\TeensDb.cs" />
     <Compile Include="Global.asax.cs">
