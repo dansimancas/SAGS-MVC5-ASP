@@ -17,7 +17,7 @@ namespace BusinessLogic
         private DateTime begginingDate;
         private DateTime endingDate;
         private string description;
-        public static List<IObserver> activityObservers = new List<IObserver>();
+        public static Dictionary<long, IObserver> activityObservers = new Dictionary<long, IObserver>();
 
         #endregion
 
@@ -84,22 +84,25 @@ namespace BusinessLogic
 
         public void RegisterObserver(IObserver observer)
         {
-            if (!activityObservers.Contains(observer)) activityObservers.Add(observer);         
+            long key = observer.Key();
+            if(!activityObservers.ContainsKey(key)) activityObservers.Add(key, observer);
+            
         }
 
         public void UnregisterObserver(IObserver observer)
         {
-            if (activityObservers.Contains(observer)) activityObservers.Remove(observer);
+            long key = observer.Key();
+            if (activityObservers.ContainsKey(key)) activityObservers.Remove(key);
         }
 
         public void NotifyObservers(Activity activity, string message)
         {
-            foreach (IObserver o in activityObservers)
+           foreach(KeyValuePair<long, IObserver> ob in activityObservers)
             {
-                o.Update(activity, message);
+                ob.Value.Update(activity, message);
             }
         }
-
+        
         #endregion
     }
 }
