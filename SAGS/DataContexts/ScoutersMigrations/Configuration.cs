@@ -9,7 +9,8 @@ namespace SAGS.DataContexts.ScoutersMigrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"DataContexts\ScoutersMigrations";
         }
 
