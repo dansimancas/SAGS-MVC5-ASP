@@ -10,21 +10,10 @@ namespace BusinessLogic
 {
     public class User : IObserver
     {
-        #region Atributes
-
-        private int id;
-        private static int val = 0;
-
-        #endregion
-
         #region Properties
 
         [Key]
-        public int Id
-        {
-            get { return id; }
-            set { id = ++val; }
-        }
+        public int Id { get; set; }
 
         [Required]
         public UserRole Role { get; set; }
@@ -37,28 +26,6 @@ namespace BusinessLogic
 
         [Required]
         public string Password { set; get; }
-
-        #endregion
-
-        #region Constructors
-
-        public User()
-        {
-            this.Id = ++val;
-            this.Role = UserRole.Standard;
-            this.MemberId = 1234;
-            this.Email = "lauri_cdd@hotmail.com";
-            this.Password = "1234qwer";
-        }
-
-        public User(UserRole role, int memberid, string email, string password)
-        {
-            this.Id = ++val;
-            this.Role = role;
-            this.MemberId = memberid;
-            this.Email = email;
-            this.Password = password;
-        }
 
         #endregion
 

@@ -13,12 +13,10 @@ namespace BusinessLogic
     {
         #region Attributes
         
-        private int id;
         private string name;
         private DateTime begginingDate;
         private DateTime endingDate;
         private string description;
-        private int val = 0;
         public static List<IObserver> activityObservers = new List<IObserver>();
 
         #endregion
@@ -26,11 +24,7 @@ namespace BusinessLogic
         #region Properties
 
         [Key]
-        public int Id
-        {
-            get { return id; }
-            set { id = ++val; }
-        }
+        public int Id { get; set; }
 
         [Required]
         public string Name
@@ -71,22 +65,6 @@ namespace BusinessLogic
                 description = value;
                 NotifyObservers(this, "updated activity description");
             }
-        }
-
-        #endregion
-
-        #region Constructors
-
-        public Activity(List<IObserver> obs)
-        {
-            this.Id = ++val;
-            this.Name = "Der Tag den Offenen Tür";
-            this.BegginingDate = DateTime.Now;
-            this.EndingDate = BegginingDate.AddHours(6);
-            this.Description = "Heute ist der Tag wenn alles kann mitkommen und deutcshe Würstchen essen.";
-            //Observer
-            activityObservers.AddRange(obs);
-            NotifyObservers(this,"creation of activity");
         }
 
         #endregion

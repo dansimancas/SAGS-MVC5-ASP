@@ -10,20 +10,10 @@ namespace BusinessLogic
 {
     public class Teen : IMember
     {
-        #region Atributes
-
-        private int id;
-
-        #endregion
-
         #region Properties
 
         [Key]
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -40,11 +30,11 @@ namespace BusinessLogic
         [Required]
         public string City { get; set; }
 
-        [NotMapped]
-        public virtual List<long> Telephones { get; set; }
+        [Required]
+        public string Telephones { get; set; }
 
-        [NotMapped]
-        public virtual List<string> EmailAddresses { get; set; }
+        [Required]
+        public string EmailAddresses { get; set; }
 
         [Required]
         public DocumentType Document { get; set; }
@@ -53,51 +43,14 @@ namespace BusinessLogic
         public long Identification { get; set; }
 
         [NotMapped]
-        public virtual List<string> GuardiansId { get; set; }
+        public List<string> GuardiansId { get; set; }
 
         [NotMapped]
         public MedicalHistory TeenMedicalHistory { get; set; }
 
         #endregion
 
-        #region Constructors
-
-
-        #endregion
-
         #region Methods
-
-        public void addTelephone(long t)
-        {
-            Telephones.Add(t);
-        }
-
-        public void addEmailAddress(string e)
-        {
-            if (EmailAddresses != null)
-            {
-                EmailAddresses.Add(e);
-            }
-            else
-            {
-                EmailAddresses = new List<string>();
-                EmailAddresses.Add(e);
-            }
-        }
-
-        protected string printTelephones(List<long> tels)
-        {
-            if (tels != null && tels.Count > 0)
-            {
-                string value = "";
-                foreach (long o in tels)
-                {
-                    value += o + ", ";
-                }
-                return value.Substring(0, value.Length - 2);
-            }
-            else return "There are no telephone numbers asigned yet.";
-        }
 
         protected string printStringList(List<string> mylist)
         {
@@ -131,7 +84,7 @@ namespace BusinessLogic
                 "\nLast name: " + this.Gender +
                 "\nAddress: " + this.Address +
                 "\nCity: " + this.City +
-                "\nTelephones: " + printTelephones(Telephones) +
+                "\nTelephones: " + this.Telephones +
                 "\nDocument type: " + this.Document +
                 "\nIdentification: " + this.Identification +
                 "\nGuardians : " + printStringList(GuardiansId) +

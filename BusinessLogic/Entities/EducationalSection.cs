@@ -11,20 +11,9 @@ namespace BusinessLogic
     [Table("Educational sections")]
     public class EducationalSection
     {
-        #region Atributes
-
-        private int id;
-        private static int val = 0;
-
-        #endregion
-
         #region Properties
         [Key]
-        public int Id
-        {
-            get { return id; }
-            set { id = ++val; }
-        }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -38,28 +27,6 @@ namespace BusinessLogic
         [Required]
         [StringLength(200)]
         public string Observations { get; set; }
-
-        #endregion
-
-        #region Constructors
-
-        public EducationalSection(string name, string initialAge, string finalAge, string observations)
-        {
-            this.Id = ++val;
-            this.Name = name;
-            this.InitialAge = initialAge;
-            this.FinalAge = finalAge;
-            this.Observations = observations;
-        }
-
-        #endregion
-
-        #region Methods
-
-        public void addObservation(string obs)
-        {
-            this.Observations = (this.Observations == "") ? obs : ". " + obs;
-        }
 
         #endregion
 
