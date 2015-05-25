@@ -72,6 +72,11 @@ namespace BusinessLogic
             string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
             SendEmail send = new SendEmail(this.EmailAddresses, "Activity: " + activity.Name + " Notification", body);
         }
+
+        public long Key()
+        {
+            return this.Identification;
+        }
         
         #endregion
 
@@ -92,5 +97,6 @@ namespace BusinessLogic
         }
 
         #endregion
+   
     }
 }

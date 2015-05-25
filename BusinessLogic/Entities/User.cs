@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
-    public class User : IObserver
+    public class User
     {
         #region Properties
 
@@ -30,13 +30,6 @@ namespace BusinessLogic
         #endregion
 
         #region Methods
-
-        public void Update(Activity activity, string message)
-        {
-            Console.WriteLine("\nUSERS/" + activity.Name + " notification: " + message + ".");
-            string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
-            SendEmail send = new SendEmail(this.Email, "Activity: " + activity.Name + " Notification", body);
-        }
 
         #endregion
 

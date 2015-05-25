@@ -57,6 +57,11 @@ namespace BusinessLogic
             SendEmail send = new SendEmail(this.EmailAddresses, "Activity: " + activity.Name + " Notification", body);
         }
 
+        public long Key()
+        {
+            return this.Identification;
+        }
+
         #endregion
 
         #region Overridden methods
@@ -75,5 +80,8 @@ namespace BusinessLogic
         }
 
         #endregion
+
+
+
     }
 }
