@@ -165,6 +165,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TeensController.cs" />
+    <Compile Include="DataContexts\GuardianDB.cs" />
+    <Compile Include="DataContexts\GuardiansMigrations\Configuration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="DataContexts\TeenMigrations\Configuration.cs" />
