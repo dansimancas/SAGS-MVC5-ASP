@@ -47,7 +47,7 @@ namespace SAGS.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Name,Lastname,Gender,Address,City,Telephones,EmailAddresses,Document,Identification,WorkExperience")] Scouter scouter)
+        public ActionResult Create([Bind(Include="Id,Name,Lastname,GenderMember,Address,City,Telephones,EmailAddresses,Document,Identification,WorkExperience")] Scouter scouter)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace SAGS.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Name,Lastname,Gender,Address,City,Telephones,EmailAddresses,Document,Identification,WorkExperience")] Scouter scouter)
+        public ActionResult Edit([Bind(Include="Id,Name,Lastname,GenderMember,Address,City,Telephones,EmailAddresses,Document,Identification,WorkExperience")] Scouter scouter)
         {
             if (ModelState.IsValid)
             {

@@ -37,25 +37,25 @@
             @Html.DisplayNameFor(model => model.Lastname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
+            @Html.DisplayNameFor(model => model.GenderMember)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model.Document)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Identification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Telephones)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EmailAddresses)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Document)
         </th>
         <th></th>
     </tr>
@@ -69,25 +69,25 @@
             @Html.DisplayFor(modelItem => item.Lastname)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gender)
+            @Html.DisplayFor(modelItem => item.GenderMember)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.City)
+            @Html.DisplayFor(modelItem => item.Document)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Identification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Telephones)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmailAddresses)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Document)
         </td>
         <td>
 			@Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-sm"})

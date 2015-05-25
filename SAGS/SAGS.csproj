@@ -162,11 +162,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\GuardiansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ScoutersController.cs" />
     <Compile Include="Controllers\TeensController.cs" />
+    <Compile Include="DataContexts\ActivityDb.cs" />
+    <Compile Include="DataContexts\ActivityMigrations\Configuration.cs" />
     <Compile Include="DataContexts\GuardianMigrations\Configuration.cs" />
     <Compile Include="DataContexts\GuardiansDb.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
@@ -866,6 +869,12 @@
     <Content Include="Views\Scouters\Details.cshtml" />
     <Content Include="Views\Scouters\Edit.cshtml" />
     <Content Include="Views\Scouters\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Gender.cshtml" />
+    <Content Include="Views\Activities\Create.cshtml" />
+    <Content Include="Views\Activities\Delete.cshtml" />
+    <Content Include="Views\Activities\Details.cshtml" />
+    <Content Include="Views\Activities\Edit.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -44,6 +44,7 @@
     <Compile Include="Entities\DocumentType.cs" />
     <Compile Include="Entities\EducationalSection.cs" />
     <Compile Include="Entities\EducationHistory.cs" />
+    <Compile Include="Entities\Gender.cs" />
     <Compile Include="Entities\Guardian.cs" />
     <Compile Include="Entities\MedicalHistory.cs" />
     <Compile Include="Entities\Scouter.cs" />

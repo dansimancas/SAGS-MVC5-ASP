@@ -26,7 +26,7 @@ namespace BusinessLogic
             scouterInstance = s;
             base.Name = s.Name;
             base.Lastname = s.Lastname;
-            base.Gender = s.Gender;
+            base.GenderMember = s.GenderMember;
             base.Address = s.Address;
             base.City = s.City;
             base.Telephones = s.Telephones;

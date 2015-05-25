@@ -26,7 +26,7 @@ namespace BusinessLogic
             guardianInstance = g;
             base.Name = g.Name;
             base.Lastname = g.Lastname;
-            base.Gender = g.Gender;
+            base.GenderMember = g.GenderMember;
             base.Address = g.Address;
             base.City = g.City;
             base.Telephones = g.Telephones;

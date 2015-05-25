@@ -8,110 +8,140 @@ using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
 using SAGS.DataContext;
+using SAGS.DataContexts;
+
 
 namespace SAGS.Controllers
 {
-    public class TeensController : Controller
+    public class ActivitiesController : Controller
     {
-        private TeensDb db = new TeensDb();
+        private ActivityDb db = new ActivityDb();
+        private TeensDb db1 = new TeensDb();
+        private ScoutersDb db2 = new ScoutersDb();
+        private GuardiansDb db3 = new GuardiansDb();
 
-        // GET: /Teens/
-        public ActionResult Index()
+        public ActivitiesController()
         {
-            return View(db.Teens.ToList());
+            IEnumerable<Teen> Observers1 = db1.Teens.ToList();
+            IEnumerable<Scouter> Observers2 = db2.Scouters.ToList();
+            IEnumerable<Guardian> Observers3 = db3.Guardians.ToList();
+
+            Activity activity = new Activity();
+
+            foreach (var item in Observers1)
+            {
+                activity.RegisterObserver(item);
+            }
+
+            foreach (var item in Observers2)
+            {
+                activity.RegisterObserver(item);
+            }
+
+            foreach (var item in Observers3)
+            {
+                activity.RegisterObserver(item);
+            }
+                         
         }
 
-        // GET: /Teens/Details/5
+        // GET: /Activities/
+        public ActionResult Index()
+        {
+            return View(db.Activities.ToList());
+        }
+
+        // GET: /Activities/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Teen teen = db.Teens.Find(id);
-            if (teen == null)
+            Activity activity = db.Activities.Find(id);
+            if (activity == null)
             {
                 return HttpNotFound();
             }
-            return View(teen);
+            return View(activity);
         }
 
-        // GET: /Teens/Create
+        // GET: /Activities/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: /Teens/Create
+        // POST: /Activities/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Name,Lastname,GenderMember,Address,City,Telephones,EmailAddresses,Document,Identification")] Teen teen)
+        public ActionResult Create([Bind(Include="Id,Name,BegginingDate,EndingDate,Description")] Activity activity)
         {
             if (ModelState.IsValid)
-            {
-                db.Teens.Add(teen);
+            {   
+                db.Activities.Add(activity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(teen);
+            return View(activity);
         }
 
-        // GET: /Teens/Edit/5
+        // GET: /Activities/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Teen teen = db.Teens.Find(id);
-            if (teen == null)
+            Activity activity = db.Activities.Find(id);
+            if (activity == null)
             {
                 return HttpNotFound();
             }
-            return View(teen);
+            return View(activity);
         }
 
-        // POST: /Teens/Edit/5
+        // POST: /Activities/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Name,Lastname,GenderMember,Address,City,Telephones,EmailAddresses,Document,Identification")] Teen teen)
+        public ActionResult Edit([Bind(Include="Id,Name,BegginingDate,EndingDate,Description")] Activity activity)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(teen).State = EntityState.Modified;
+                db.Entry(activity).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(teen);
+            return View(activity);
         }
 
-        // GET: /Teens/Delete/5
+        // GET: /Activities/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Teen teen = db.Teens.Find(id);
-            if (teen == null)
+            Activity activity = db.Activities.Find(id);
+            if (activity == null)
             {
                 return HttpNotFound();
             }
-            return View(teen);
+            return View(activity);
         }
 
-        // POST: /Teens/Delete/5
+        // POST: /Activities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Teen teen = db.Teens.Find(id);
-            db.Teens.Remove(teen);
+            Activity activity = db.Activities.Find(id);
+            db.Activities.Remove(activity);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

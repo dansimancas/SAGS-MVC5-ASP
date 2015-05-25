@@ -24,7 +24,7 @@ namespace BusinessLogic
         public string Lastname { get; set; }
 
         [Required]
-        public string Gender { get; set; }
+        public Gender GenderMember { get; set; }
 
         [Required]
         public string Address { get; set; }
@@ -103,7 +103,7 @@ namespace BusinessLogic
         {
             return "\nScouter:\nId: " + this.Id +
                 "\nName: " + this.Name +
-                "\nLast name: " + this.Gender +
+                "\nLast name: " + this.GenderMember +
                 "\nAddress: " + this.Address +
                 "\nCity: " + this.City +
                 "\nTelephones: " + this.Telephones +

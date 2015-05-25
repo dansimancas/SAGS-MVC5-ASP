@@ -30,29 +30,38 @@ namespace BusinessLogic
         public string Name
         {
             get { return name; }
-            set { 
-                name = value;
-                NotifyObservers(this, "updated activity name");
+            set {
+                if (name != value)
+                {
+                    name = value;
+                    NotifyObservers(this, "updated activity name");
+                }
             }
         }
 
-        [Required]
+        
         public DateTime BegginingDate
         {
             get { return begginingDate; }
-            set { 
-                begginingDate = value;
-                NotifyObservers(this, "updated beggining date");
+            set {
+                if (begginingDate != value)
+                {
+                    begginingDate = value;
+                    NotifyObservers(this, "updated beggining date");
+                }
             }
         }
 
-        [Required]
+        
         public DateTime EndingDate
         {
             get { return endingDate; }
-            set { 
-                endingDate = value;
-                NotifyObservers(this, "updated ending date");
+            set {
+                if (endingDate != value)
+                {
+                    endingDate = value;
+                    NotifyObservers(this, "updated ending date");
+                }
             }
         }
 
@@ -61,9 +70,11 @@ namespace BusinessLogic
         public string Description
         {
             get { return description; }
-            set { 
-                description = value;
-                NotifyObservers(this, "updated activity description");
+            set {
+                if(description != value){
+                    description = value;
+                    NotifyObservers(this, "updated activity description");
+                }
             }
         }
 
@@ -73,7 +84,7 @@ namespace BusinessLogic
 
         public void RegisterObserver(IObserver observer)
         {
-            activityObservers.Add(observer);
+            if (!activityObservers.Contains(observer)) activityObservers.Add(observer);         
         }
 
         public void UnregisterObserver(IObserver observer)

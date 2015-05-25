@@ -32,6 +32,12 @@
             <li class="@Html.IsSelected(controller: "Guardians")">
                 <a href="@Url.Action("Index", "Guardians")"><i class="fa fa-male"></i> <span>Guardians</span></a>
             </li>
+            <li class="@Html.IsSelected(controller: "Scouters")">
+                <a href="@Url.Action("Index", "Scouters")"><i class="fa fa-male"></i> <span>Scouters</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Activities")">
+                <a href="@Url.Action("Index", "Activities")"><i class="fa fa-eye"></i> <span>Activities</span></a>
+            </li>
         </ul>
     </div>
 </nav>
