@@ -1,4 +1,4 @@
-namespace SAGS.DataContexts.GuardiansMigrations
+namespace SAGS.DataContexts.GuardianMigrations
 {
     using System;
     using System.Data.Entity;

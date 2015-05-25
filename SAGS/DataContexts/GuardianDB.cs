@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using SAGS.Models;
+﻿using SAGS.DataContexts.GuardianMigrations;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using System.Data.Entity;
-using System.Text;
-using SAGS.DataContexts.GuardiansMigrations;
+
 
 namespace SAGS.DataContexts
 {

@@ -16,6 +16,11 @@ namespace BusinessLogic
 
         #region Constructors
 
+        public ScouterToGuardianAdapter()
+        {
+
+        }
+
         public ScouterToGuardianAdapter(Scouter s)
         {
             scouterInstance = s;

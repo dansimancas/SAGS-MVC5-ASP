@@ -162,11 +162,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GuardiansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TeensController.cs" />
     <Compile Include="DataContexts\GuardianDB.cs" />
-    <Compile Include="DataContexts\GuardiansMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\GuardianMigrations\Configuration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="DataContexts\TeenMigrations\Configuration.cs" />
@@ -852,6 +853,11 @@
     <Content Include="Views\Teens\Details.cshtml" />
     <Content Include="Views\Teens\Edit.cshtml" />
     <Content Include="Views\Teens\Index.cshtml" />
+    <Content Include="Views\Guardians\Create.cshtml" />
+    <Content Include="Views\Guardians\Delete.cshtml" />
+    <Content Include="Views\Guardians\Details.cshtml" />
+    <Content Include="Views\Guardians\Edit.cshtml" />
+    <Content Include="Views\Guardians\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

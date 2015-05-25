@@ -28,12 +28,15 @@ namespace BusinessLogic
 
         [Required]
         public string Address { get; set; }
+              
+        [Required]
+        public DocumentType Document { get; set; }
+
+        [Required]
+        public long Identification { get; set; }
 
         [Required]
         public string City { get; set; }
-        
-        [Required]
-        public long Identification { get; set; }
 
         [Required]
         public string Telephones { get; set; }
@@ -41,8 +44,7 @@ namespace BusinessLogic
         [Required]
         public string EmailAddresses { get; set; }
 
-        [Required]
-        public DocumentType Document { get; set; }
+      
 
         #endregion
 
