@@ -9,9 +9,9 @@ namespace BusinessLogic
 {
     public class ScoutGroupManager
     {
-        private IManagerFileStrategy ManagerStrategy;
+        private IFileManagerStrategy ManagerStrategy;
 
-        public ScoutGroupManager(IManagerFileStrategy strategy)
+        public ScoutGroupManager(IFileManagerStrategy strategy)
         {
             this.ManagerStrategy = strategy;
         }

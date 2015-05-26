@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using BusinessLogic;
+
 
 namespace SAGS.DataContexts
 {
@@ -16,6 +18,6 @@ namespace SAGS.DataContexts
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ScoutersDb, Configuration>());
         }
 
-        public System.Data.Entity.DbSet<BusinessLogic.Scouter> Scouters { get; set; }
+        public DbSet<Scouter> Scouters { get; set; }
     }
 }

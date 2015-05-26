@@ -120,6 +120,7 @@
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-primary" />
 				@Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white"})
+                @Html.ActionLink("Convert To Scouter", "TeenToScouter", "Adapters", new { id = Model.Id }, new { @class = "btn btn-warning" })
             </div>
         </div>
     </div>

@@ -23,7 +23,7 @@ namespace BusinessLogic
 
         public GuardianToScouterAdapter(Guardian g)
         {
-            guardianInstance = g;
+           // guardianInstance = g;
             base.Name = g.Name;
             base.Lastname = g.Lastname;
             base.GenderMember = g.GenderMember;
@@ -33,10 +33,10 @@ namespace BusinessLogic
             base.EmailAddresses = g.EmailAddresses;
             base.Document = g.Document;
             base.Identification = g.Identification;
-            base.GuardiansId = new List<string>();
-            base.ScouterMedicalHistory = new MedicalHistory();
-            base.ScouterEducation = new EducationHistory();
-            base.WorkExperience = "";
+            // base.GuardiansId = new List<string>();
+            // base.ScouterMedicalHistory = new MedicalHistory();
+            // base.ScouterEducation = new EducationHistory();
+            base.WorkExperience = "No experience ";
         }
 
 

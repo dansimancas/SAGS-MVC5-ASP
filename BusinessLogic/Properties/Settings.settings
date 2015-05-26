@@ -2,25 +2,25 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BusinessLogic.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="name" Type="System.String" Scope="Application">
+    <Setting Name="name" Type="System.String" Scope="User">
       <Value Profile="(Default)">Caribe</Value>
     </Setting>
-    <Setting Name="number" Type="System.Int32" Scope="Application">
+    <Setting Name="number" Type="System.Int32" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="city" Type="System.String" Scope="Application">
+    <Setting Name="city" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="state" Type="System.String" Scope="Application">
+    <Setting Name="state" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="country" Type="System.String" Scope="Application">
+    <Setting Name="country" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="address" Type="System.String" Scope="Application">
+    <Setting Name="address" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="sponsor" Type="System.String" Scope="Application">
+    <Setting Name="sponsor" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="fromEmail" Type="System.String" Scope="Application">

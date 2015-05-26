@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public interface IManagerFileStrategy
+    public interface IFileManagerStrategy
     {
         ScoutGroup loadFile();
 

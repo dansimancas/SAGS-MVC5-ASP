@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class ScouterToGuardianAdapter : Guardian
+    public class ScouterToGuardianAdapter : Guardian
     {
         #region Atributes
 
@@ -15,11 +15,6 @@ namespace BusinessLogic
         #endregion
 
         #region Constructors
-
-        public ScouterToGuardianAdapter()
-        {
-
-        }
 
         public ScouterToGuardianAdapter(Scouter s)
         {

@@ -24,7 +24,7 @@ namespace SAGS
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            IEnumerable<Teen> Observers1 = db1.Teens.ToList();
+/*            IEnumerable<Teen> Observers1 = db1.Teens.ToList();
             IEnumerable<Scouter> Observers2 = db2.Scouters.ToList();
             IEnumerable<Guardian> Observers3 = db3.Guardians.ToList();
 
@@ -48,7 +48,7 @@ namespace SAGS
                 activity.RegisterObserver(item);
             }
                          
-       
+  */     
         }
     }
 }
