@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public interface INotificationStrategy
+    public interface IManagerFileStrategy
     {
-        void sendNotification(IMember M, string title, string message);
+        ScoutGroup loadFile();
+
+        void writeFile(ScoutGroup S);
     }
 }

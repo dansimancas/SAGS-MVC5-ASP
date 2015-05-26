@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessLogic {
+namespace BusinessLogic.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace BusinessLogic {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("los rastrojos")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Caribe")]
         public string name {
             get {
                 return ((string)(this["name"]));
@@ -34,7 +34,6 @@ namespace BusinessLogic {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1234")]
         public int number {
             get {
                 return ((int)(this["number"]));
@@ -43,7 +42,7 @@ namespace BusinessLogic {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("cartagena")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string city {
             get {
                 return ((string)(this["city"]));
@@ -52,7 +51,7 @@ namespace BusinessLogic {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("bolivar")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string state {
             get {
                 return ((string)(this["state"]));
@@ -61,7 +60,7 @@ namespace BusinessLogic {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("colombia")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string country {
             get {
                 return ((string)(this["country"]));
@@ -70,7 +69,7 @@ namespace BusinessLogic {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("olaya")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string address {
             get {
                 return ((string)(this["address"]));
@@ -79,7 +78,7 @@ namespace BusinessLogic {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("angel")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string sponsor {
             get {
                 return ((string)(this["sponsor"]));

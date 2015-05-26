@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 
-namespace BusinessLogic.Patterns.Strategy.NotificationStrategy
+namespace BusinessLogic
 {
     public class EmailNotificationStrategy : INotificationStrategy
     {
@@ -20,8 +20,8 @@ namespace BusinessLogic.Patterns.Strategy.NotificationStrategy
 
         public void sendNotification(IMember M, string title, string message)
         {
-            this.from = Settings.Default["fromEmail"].ToString();
-            this.fromPassword = Settings.Default["fromPassword"].ToString();
+            this.from = Properties.Settings.Default["fromEmail"].ToString();
+            this.fromPassword = Properties.Settings.Default["fromPassword"].ToString();
             this.to = M.EmailAddresses;
             this.subject = title;
             this.body = message;
