@@ -51,6 +51,10 @@ namespace SAGS.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                Activity activity = new Activity();
+                activity.RegisterObserver(guardian);
+
                 db.Guardians.Add(guardian);
                 db.SaveChanges();
                 return RedirectToAction("Index");

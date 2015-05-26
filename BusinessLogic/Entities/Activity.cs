@@ -34,7 +34,6 @@ namespace BusinessLogic
                 if (name != value)
                 {
                     name = value;
-                    NotifyObservers(this, "updated activity name");
                 }
             }
         }
@@ -47,7 +46,6 @@ namespace BusinessLogic
                 if (begginingDate != value)
                 {
                     begginingDate = value;
-                    NotifyObservers(this, "updated beggining date");
                 }
             }
         }
@@ -59,8 +57,7 @@ namespace BusinessLogic
             set {
                 if (endingDate != value)
                 {
-                    endingDate = value;
-                    NotifyObservers(this, "updated ending date");
+                    endingDate = value;                   
                 }
             }
         }
@@ -73,7 +70,6 @@ namespace BusinessLogic
             set {
                 if(description != value){
                     description = value;
-                    NotifyObservers(this, "updated activity description");
                 }
             }
         }

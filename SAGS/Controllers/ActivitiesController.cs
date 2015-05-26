@@ -56,6 +56,7 @@ namespace SAGS.Controllers
             {   
                 db.Activities.Add(activity);
                 db.SaveChanges();
+                activity.NotifyObservers(activity, "New Activity Create");
                 return RedirectToAction("Index");
             }
 
@@ -88,6 +89,7 @@ namespace SAGS.Controllers
             {
                 db.Entry(activity).State = EntityState.Modified;
                 db.SaveChanges();
+                activity.NotifyObservers(activity, "Update Activity");
                 return RedirectToAction("Index");
             }
             return View(activity);
@@ -116,6 +118,7 @@ namespace SAGS.Controllers
             Activity activity = db.Activities.Find(id);
             db.Activities.Remove(activity);
             db.SaveChanges();
+            activity.NotifyObservers(activity, "Activity has been deleted");
             return RedirectToAction("Index");
         }
 
