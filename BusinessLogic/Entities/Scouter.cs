@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using BusinessLogic.Patterns.Strategy.NotificationStrategy;
 
 namespace BusinessLogic
 {
     [Table("Scouters")]
     public class Scouter : IMember
-
     {
+        private INotificationStrategy NotificationStrategy;
+
         #region Properties
 
         [Key]
@@ -90,14 +92,20 @@ namespace BusinessLogic
 
         public void Update(Activity activity, string message)
         {
-            Console.WriteLine("\nSCOUTERS/" + activity.Name + " notification: " + message + ".");
+            Console.WriteLine("\nTEENS/" + activity.Name + " notification: " + message + ".");
             string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
-            SendEmail send = new SendEmail(this.EmailAddresses, "Activity: " + activity.Name + " Notification", body);
+            string title = "Activity: " + activity.Name + " Notification";
+            NotificationStrategy.sendNotification(this, title, body);
         }
 
         public long Key()
         {
             return this.Identification;
+        }
+
+        public void setStrategy(INotificationStrategy strategy)
+        {
+            NotificationStrategy = strategy;
         }
 
         #endregion
@@ -119,9 +127,6 @@ namespace BusinessLogic
         }
 
         #endregion
-
-
-
         
     }
 }

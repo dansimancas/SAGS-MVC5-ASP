@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
 using SAGS.DataContexts;
+using BusinessLogic.Patterns.Strategy.NotificationStrategy;
 
 namespace SAGS.Controllers
 {
@@ -53,6 +54,9 @@ namespace SAGS.Controllers
             {
 
                 Activity activity = new Activity();
+                
+                guardian.setStrategy(new EmailNotificationStrategy());
+
                 activity.RegisterObserver(guardian);
 
                 db.Guardians.Add(guardian);

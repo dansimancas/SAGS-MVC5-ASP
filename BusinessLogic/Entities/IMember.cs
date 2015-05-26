@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    interface IMember : IObserver
+    public interface IMember : IObserver
     {
         #region Properties
 

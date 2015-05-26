@@ -5,13 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using BusinessLogic.Patterns.Strategy.NotificationStrategy;
 
 namespace BusinessLogic
 {
     public class Teen : IMember
     {
-        #region Properties
+        #region Constructors
+        private INotificationStrategy NotificationStrategy;
+        
+        #endregion 
 
+        #region Properties
         [Key]
         public int Id { get; set; }
 
@@ -70,14 +75,22 @@ namespace BusinessLogic
         {
             Console.WriteLine("\nTEENS/" + activity.Name + " notification: " + message + ".");
             string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
-            SendEmail send = new SendEmail(this.EmailAddresses, "Activity: " + activity.Name + " Notification", body);
+            string title = "Activity: " + activity.Name + " Notification";
+            NotificationStrategy.sendNotification(this, title, body);
+            //SendEmail send = new SendEmail(this.EmailAddresses, , body);
         }
 
         public long Key()
         {
             return this.Identification;
         }
+
+        public void setStrategy(INotificationStrategy strategy)
+        {
+            NotificationStrategy = strategy;
+        }
         
+
         #endregion
 
         #region Overridden methods

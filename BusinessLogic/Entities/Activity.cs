@@ -95,6 +95,7 @@ namespace BusinessLogic
         {
            foreach(KeyValuePair<long, IObserver> ob in activityObservers)
             {
+               
                 ob.Value.Update(activity, message);
             }
         }

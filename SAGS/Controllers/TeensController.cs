@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
+using BusinessLogic.Patterns.Strategy.NotificationStrategy;
 using SAGS.DataContext;
 
 namespace SAGS.Controllers
@@ -52,9 +53,8 @@ namespace SAGS.Controllers
             if (ModelState.IsValid)
             {
                 Activity activity = new Activity();
-
+                teen.setStrategy(new EmailNotificationStrategy());
                 activity.RegisterObserver(teen);
-
                 db.Teens.Add(teen);
                 db.SaveChanges();
                 return RedirectToAction("Index");

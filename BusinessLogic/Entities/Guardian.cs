@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using BusinessLogic.Patterns.Strategy.NotificationStrategy;
 namespace BusinessLogic
 {
     [Table("Guardians")]
     public class Guardian : IMember
     {
+        private INotificationStrategy NotificationStrategy;
+
         #region Properties
 
         //TODO: Agregar propiedades inherentes a los guardianes.
@@ -52,9 +54,10 @@ namespace BusinessLogic
 
         public void Update(Activity activity, string message)
         {
-            Console.WriteLine("\nGUARDIANS/" + activity.Name + " notification: " + message + ".");
+            Console.WriteLine("\nTEENS/" + activity.Name + " notification: " + message + ".");
             string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
-            SendEmail send = new SendEmail(this.EmailAddresses, "Activity: " + activity.Name + " Notification", body);
+            string title = "Activity: " + activity.Name + " Notification";
+            NotificationStrategy.sendNotification(this, title, body);
         }
 
         public long Key()
@@ -62,6 +65,11 @@ namespace BusinessLogic
             return this.Identification;
         }
 
+
+        public void setStrategy(INotificationStrategy strategy)
+        {
+            NotificationStrategy = strategy;
+        }
         #endregion
 
         #region Overridden methods
@@ -80,7 +88,6 @@ namespace BusinessLogic
         }
 
         #endregion
-
 
 
     }

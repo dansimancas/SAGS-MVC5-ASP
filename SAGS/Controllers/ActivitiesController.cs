@@ -118,6 +118,7 @@ namespace SAGS.Controllers
             Activity activity = db.Activities.Find(id);
             db.Activities.Remove(activity);
             db.SaveChanges();
+            
             activity.NotifyObservers(activity, "Activity has been deleted");
             return RedirectToAction("Index");
         }

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using BusinessLogic;
+using BusinessLogic.Patterns.Strategy.NotificationStrategy;
 
 namespace SAGS
 {
@@ -32,16 +33,19 @@ namespace SAGS
 
             foreach (var item in Observers1)
             {
+                item.setStrategy(new EmailNotificationStrategy());
                 activity.RegisterObserver(item);
             }
 
             foreach (var item in Observers2)
             {
+                item.setStrategy(new EmailNotificationStrategy());
                 activity.RegisterObserver(item);
             }
 
             foreach (var item in Observers3)
             {
+                item.setStrategy(new EmailNotificationStrategy());
                 activity.RegisterObserver(item);
             }
                          
