@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BusinessLogic.Activity" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAACAAAAAAAgBAAAIAAAAAQAAAAUIAAAAAAAAEAgAAA=</HashCode>
+      <FileName>Entities\Activity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.223" />
+  </Class>
+  <Class Name="BusinessLogic.EducationalSection">
+    <Position X="11.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAQAAUAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Entities\EducationalSection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.Guardian">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQCQAABCBAAAAQMAAAAAAQAAAABAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Guardian.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.MedicalHistory">
+    <Position X="13.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEBACQAQAAAAAgAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\MedicalHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.Scouter">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQCwAABKhAAQAQMAAAAAIQAAAABAAACAAAABAAAAAA=</HashCode>
+      <FileName>Entities\Scouter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.ScoutGroup">
+    <Position X="12.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEiQAAAAAAAAAAMAEAAAAQAAAIAAAQCAAAABAAAAAA=</HashCode>
+      <FileName>Entities\ScoutGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.ScoutGroupManager">
+    <Position X="10.25" Y="15" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Entities\ScoutGroupManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.Teen" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQCwAABCBAAQAQMAAAAAAQAAAABAgACAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Teen.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="BusinessLogic.Unit">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Entities\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.User">
+    <Position X="2" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAEkAAAAQAAAAAAAIACAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.GuardianToScouterAdapter">
+    <Position X="4.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Adapter\GuardianToScouterAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.ScouterToGuardianAdapter">
+    <Position X="10.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Patterns\Adapter\ScouterToGuardianAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.TeenToScouterAdapter">
+    <Position X="8.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Adapter\TeenToScouterAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLogic.EmailNotificationStrategy" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="14.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAIAAAAAAAAAAAQAAAiAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Strategy\NotificationStrategy\EmailNotificationStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="BusinessLogic.JsonFileManagerStrategy" BaseTypeListCollapsed="true">
+    <Position X="6" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Patterns\Strategy\WriteFileStrategy\JsonFileManagerStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.SettingsFileManagerStrategy" BaseTypeListCollapsed="true">
+    <Position X="8" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Patterns\Strategy\WriteFileStrategy\SettingsFileManagerStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="BusinessLogic.EducationHistory">
+    <Position X="11.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAABAAAAAAAEACAAAAAEBAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\EducationHistory.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="BusinessLogic.IMember" Collapsed="true">
+    <Position X="8" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACQAABCAAAAAAIAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\IMember.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLogic.IObserver">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAQAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Observer\IObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLogic.ISubject">
+    <Position X="3.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Patterns\Observer\ISubject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLogic.INotificationStrategy">
+    <Position X="1" Y="12.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Strategy\NotificationStrategy\INotificationStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLogic.IFileManagerStrategy">
+    <Position X="7" Y="12.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Patterns\Strategy\WriteFileStrategy\IFileManagerStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BusinessLogic.DocumentType">
+    <Position X="13.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQQAAIIAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\DocumentType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BusinessLogic.Gender">
+    <Position X="13.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Entities\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
