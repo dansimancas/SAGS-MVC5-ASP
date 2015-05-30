@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 
-namespace SAGS.Helpers
+namespace SAGS
 {
     public static class HMTLHelperExtensions
     {

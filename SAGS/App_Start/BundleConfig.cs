@@ -72,6 +72,14 @@ namespace SAGS
             bundles.Add(new ScriptBundle("~/plugins/peity").Include(
                       "~/Scripts/plugins/peity/jquery.peity.min.js"));
 
+            // Tags js
+            bundles.Add(new ScriptBundle("~/plugins/tagsinput").Include(
+                      "~/Scripts/plugins/tagsinput/bootstrap-tagsinput.js"));
+
+            // Tags css styles
+            bundles.Add(new StyleBundle("~/bundles/tagsinput").Include(
+                    "~/Content/plugins/tagsinput/bootstrap-tagsinput.css"));
+
             // Video responsible
             bundles.Add(new ScriptBundle("~/plugins/videoResponsible").Include(
                       "~/Scripts/plugins/video/responsible-video.js"));

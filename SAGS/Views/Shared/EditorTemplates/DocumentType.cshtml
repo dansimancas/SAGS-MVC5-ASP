@@ -1,0 +1,7 @@
+﻿@using BusinessLogic;
+
+@{
+    var items = typeof(BusinessLogic.DocumentType).GetItems((int?)Model);
+}
+
+@Html.DropDownList("", items, new { @class = "form-control " })

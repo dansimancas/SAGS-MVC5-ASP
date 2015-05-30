@@ -3,55 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLogic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
+    [Table("Scout Group")]
     public class ScoutGroup
     {
         #region Atributes
 
-        private static ScoutGroup group;        
-        private string id;
-        private string name;
-        private string country;
-        private string city;
-        private string address;
-        private string sponsor;
+        private static ScoutGroup scoutGroupInstance;
 
         #endregion
 
         #region Properties
 
-        public string Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public string Country
-        {
-            get { return country; }
-            set { country = value; }
-        }
-        public string City
-        {
-            get { return city; }
-            set { city = value; }
-        }
-        public string Address
-        {
-            get { return address; }
-            set { address = value; }
-        }
-        public string Sponsor
-        {
-            get { return sponsor; }
-            set { sponsor = value; }
-        }
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public int Number { get; set; }
+
+        [Required]
+        public string State { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string Country { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        [Required]
+        public string Telephones { get; set; }
+
+        [Required]
+        public string Sponsor { get; set; }
 
         #endregion
 
@@ -59,9 +53,9 @@ namespace BusinessLogic
 
         public static ScoutGroup getInstance()
         {
-            if (group == null)
-                group = new ScoutGroup();
-            return group;
+            if (scoutGroupInstance == null)
+                scoutGroupInstance = new ScoutGroup();
+            return scoutGroupInstance;
         }
 
         public void setScoutGroupData(string id, string name, string country, string city, string address, string sponsor)
@@ -84,14 +78,17 @@ namespace BusinessLogic
 
         public override string ToString()
         {
-            return "\nScout Group:\nId: " + group.id +
-                "\nName: " + group.name +
-                "\nCountry: " + group.country +
-                "\nCity: " + group.city +
-                "\nAddress: " + group.address +
-                "\nSponsor: " + group.sponsor;
+            return "\nScout Group: \nId: " + scoutGroupInstance.Id +
+                "\nName: " + scoutGroupInstance.Name +
+                "\nNumber: " + scoutGroupInstance.Number +
+                "\nCity: " + scoutGroupInstance.City +
+                "\nState: " + scoutGroupInstance.State +
+                "\nCountry: " + scoutGroupInstance.Country +
+                "\nAddress: " + scoutGroupInstance.Address +
+                "\nTelephones: " + scoutGroupInstance.Telephones +
+                "\nSponsor: " + scoutGroupInstance.Sponsor;
         }
-        
+
         #endregion
     }
 }

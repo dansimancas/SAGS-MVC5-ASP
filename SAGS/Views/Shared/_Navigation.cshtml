@@ -26,6 +26,26 @@
                     IN+
                 </div>
             </li>
+            <li class="@Html.IsSelected(controller: "Teens")">
+                <a href="@Url.Action("Index", "Teens")"><i class="fa fa-child"></i> <span>Teens</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Guardians")">
+                <a href="@Url.Action("Index", "Guardians")"><i class="fa fa-male"></i> <span>Guardians</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Scouters")">
+                <a href="@Url.Action("Index", "Scouters")"><i class="fa fa-male"></i> <span>Scouters</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Activities")">
+                <a href="@Url.Action("Index", "Activities")"><i class="fa fa-eye"></i> <span>Activities</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Config")">
+                <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Configurations</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "ScoutGroup")">
+                        <a href="@Url.Action("ScoutGroup", "Config")"><i class="fa fa-gear"></i> <span>Scout Group</span></a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>

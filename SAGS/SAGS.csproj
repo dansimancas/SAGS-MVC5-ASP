@@ -162,12 +162,28 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DocumentTypesController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\AdaptersController.cs" />
+    <Compile Include="Controllers\GuardiansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ScoutersController.cs" />
+    <Compile Include="Controllers\ConfigController.cs" />
+    <Compile Include="Controllers\TeensController.cs" />
+    <Compile Include="DataContexts\ActivityDb.cs" />
+    <Compile Include="DataContexts\ActivityMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\GuardianMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\GuardiansDb.cs" />
+    <Compile Include="DataContexts\IdentityDb.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\ScoutersDb.cs" />
+    <Compile Include="DataContexts\ScoutersMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\TeenMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\TeensDb.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EnumHelpersExtensions.cs" />
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -839,11 +855,30 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_RightSidebar.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
-    <Content Include="Views\DocumentTypes\Create.cshtml" />
-    <Content Include="Views\DocumentTypes\Delete.cshtml" />
-    <Content Include="Views\DocumentTypes\Details.cshtml" />
-    <Content Include="Views\DocumentTypes\Edit.cshtml" />
-    <Content Include="Views\DocumentTypes\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DocumentType.cshtml" />
+    <Content Include="Views\Teens\Create.cshtml" />
+    <Content Include="Views\Teens\Delete.cshtml" />
+    <Content Include="Views\Teens\Details.cshtml" />
+    <Content Include="Views\Teens\Edit.cshtml" />
+    <Content Include="Views\Teens\Index.cshtml" />
+    <Content Include="Views\Guardians\Create.cshtml" />
+    <Content Include="Views\Guardians\Delete.cshtml" />
+    <Content Include="Views\Guardians\Details.cshtml" />
+    <Content Include="Views\Guardians\Edit.cshtml" />
+    <Content Include="Views\Guardians\Index.cshtml" />
+    <Content Include="Views\Scouters\Create.cshtml" />
+    <Content Include="Views\Scouters\Delete.cshtml" />
+    <Content Include="Views\Scouters\Details.cshtml" />
+    <Content Include="Views\Scouters\Edit.cshtml" />
+    <Content Include="Views\Scouters\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Gender.cshtml" />
+    <Content Include="Views\Activities\Create.cshtml" />
+    <Content Include="Views\Activities\Delete.cshtml" />
+    <Content Include="Views\Activities\Details.cshtml" />
+    <Content Include="Views\Activities\Edit.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
+    <Content Include="Views\Config\ScoutGroup.cshtml" />
+    <Content Include="Views\Adapters\GuardianToScouter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

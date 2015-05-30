@@ -3,111 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
+    [Table("Medical histories")]
     public class MedicalHistory
     {
-        #region Atributes
-
-        private int id;
-        private List<string> diseases;
-        private List<string> medicineIntolerances;
-        private List<string> allergies;
-        private List<string> medicalInterventions;
-        private string observations;
-        private int memberId;
-        private static int val = 0;
-        
-        #endregion
-
         #region Properties
 
+        [Key]
         public int Id { get; set; }
-        public List<string> Diseases { get; set; }
-        public List<string> MedicineIntolerances { get; set; }
-        public List<string> Alergies { get; set; }
-        public List<string> MedicalInterventions { get; set; }
-        public string Observations { get; set; }
+
+        [Required]
         public int MemberId { get; set; }
 
-        #endregion
+        [Required]
+        public string Diseases { get; set; }
 
-        #region Constructors
+        [Required]
+        public string MedicineIntolerances { get; set; }
 
-        public MedicalHistory()
-        {
-            this.id = ++val;
-            this.memberId = 1234;
-            this.diseases = new List<string>();
-            this.medicineIntolerances = new List<string>();
-            this.allergies = new List<string>();
-            this.medicalInterventions = new List<string>();
-            this.observations = "";
-        }
+        [Required]
+        public string Allergies { get; set; }
 
-        public MedicalHistory(int id, int memberId)
-        {
-            this.id = ++val;
-            this.memberId = memberId;
-            this.medicineIntolerances = new List<string>();
-            this.diseases = new List<string>();
-            this.medicineIntolerances = new List<string>();
-            this.allergies = new List<string>();
-            this.medicalInterventions = new List<string>();
-            this.observations = "";
-        }
+        [Required]
+        public string MedicalInterventions { get; set; }
+
+        [Required]
+        [StringLength(200)]
+        public string Observations { get; set; }
 
         #endregion
 
         #region Methods
 
-        public void addDisease(string disease)
-        {
-            this.diseases.Add(disease);
-        }
-
-        public void addMedicineIntolerance(string medicine)
-        {
-            this.medicineIntolerances.Add(medicine);
-        }
-
-        public void addAllergie(string allergie)
-        {
-            this.allergies.Add(allergie);
-        }
-
-        public void addMedicalIntervention(string intervention)
-        {
-            this.medicalInterventions.Add(intervention);
-        }
-
-        public void setObservations(string obs)
-        {
-            this.observations = obs;
-        }
-
-        public void addObservations(string obs)
-        {
-            this.observations = (this.observations == "") ? obs : ". " + obs;
-        }
-
-        private string printStringList(List<string> mylist)
-        {
-            string value = "";
-            foreach (string s in mylist)
-            {
-                value += s + ", ";
-            }
-            return value.Substring(0, value.Length - 2);
-        }
-
         #endregion
 
-        #region Overwritten methods
-        //TODO terminar!!!!
+        #region Overridden methods
+
         public override string ToString()
         {
+<<<<<<< HEAD
             return "\nMedical history:\nId: " + this.id +
                 "\nMember id: " + this.memberId +
                 "\nDiseases: " + printStringList(this.diseases) +
@@ -115,6 +53,15 @@ namespace BusinessLogic
                 "\nAllergies: " + printStringList(this.allergies) +
                 "\nMedical interventions: " + printStringList(this.medicalInterventions) +
                 "\nObservations: " + this.observations;
+=======
+            return "\nMedical history:\nId: " + this.Id +
+                "\nMember id: " + this.MemberId +
+                "\nDiseases: " + this.Diseases +
+                "\nMedicine intolerances: " + this.MedicineIntolerances +
+                "\nAllergies: " + this.Allergies +
+                "\nMedical interventions: " + this.MedicalInterventions +
+                "\nObservations: " + this.Observations;
+>>>>>>> 3921ed54cdf0fbe670a3eb656a1286ea6ea2b493
         }
         
         #endregion

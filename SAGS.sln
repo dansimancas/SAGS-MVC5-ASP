@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAGS", "SAGS\SAGS.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAGS.Tests", "SAGS.Tests\SAGS.Tests.csproj", "{97E19B22-D095-40AC-B63D-E64B8E0826A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTests", "ConsoleTests\ConsoleTests.csproj", "{254971D1-31CB-4D21-ACA4-A3EB62017FE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTests", "ConsoleTests\ConsoleTests.csproj", "{A6C1F577-27E6-449A-97B9-0994B8D668CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{97E19B22-D095-40AC-B63D-E64B8E0826A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E19B22-D095-40AC-B63D-E64B8E0826A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E19B22-D095-40AC-B63D-E64B8E0826A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{254971D1-31CB-4D21-ACA4-A3EB62017FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{254971D1-31CB-4D21-ACA4-A3EB62017FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{254971D1-31CB-4D21-ACA4-A3EB62017FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{254971D1-31CB-4D21-ACA4-A3EB62017FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6C1F577-27E6-449A-97B9-0994B8D668CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6C1F577-27E6-449A-97B9-0994B8D668CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6C1F577-27E6-449A-97B9-0994B8D668CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6C1F577-27E6-449A-97B9-0994B8D668CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

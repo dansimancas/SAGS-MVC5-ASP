@@ -3,141 +3,92 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
-    public class Guardian : InterfaceMember
+    [Table("Guardians")]
+    public class Guardian : IMember
     {
-        #region Atributes
-
-        //TODO Agregar atributos propios de los guardianes.
-
-        private int id;
-        private string name;
-        private string lastname;
-        private string gender;
-        private string address;
-        private string city;
-        private List<long> telephones;
-        private DocumentType typeOfDocument;
-        private long identification;
-        private static int val;
-
-        #endregion
+        private INotificationStrategy NotificationStrategy;
 
         #region Properties
 
-        public int Id
-        {
-            get { return id; }
-        }
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public string Lastname
-        {
-            get { return lastname; }
-            set { lastname = value; }
-        }
-        public string Gender
-        {
-            get { return gender; }
-            set { gender = value; }
-        }
-        public string Address
-        {
-            get { return address; }
-            set { address = value; }
-        }
-        public string City
-        {
-            get { return city; }
-            set { city = value; }
-        }
-        public long Identification
-        {
-            get { return identification; }
-            set { identification = value; }
-        }
-        public List<long> Telephones
-        {
-            get { return telephones; }
-            set { telephones = value; }
-        }
-        public DocumentType TypeOfDocument
-        {
-            get { return typeOfDocument; }
-            set { typeOfDocument = value; }
-        }
+        //TODO: Agregar propiedades inherentes a los guardianes.
+        [Key]
+        public int Id { get; set; }
 
-        #endregion
+        [Required]
+        public string Name { get; set; }
 
-        #region Constructors
+        [Required]
+        public string Lastname { get; set; }
 
-        public Guardian()
-        {
-            this.id = ++val;
-            this.name = "Daniela";
-            this.lastname = "Simancas Mateus";
-            this.gender = "Femenine";
-            this.address = "Torices";
-            this.city = "Cartagena";
-            this.telephones = new List<long>();
-            this.typeOfDocument = new DocumentType();
-            this.identification = 1050692143;
-        }
+        [Required]
+        public Gender GenderMember { get; set; }
 
-        public Guardian(string name, string lastname, string gender, string address, string city, List<long> tel, DocumentType doc, long ident)
-        {
-            this.id = ++val;
-            this.name = name;
-            this.lastname = lastname;
-            this.gender = gender;
-            this.address = address;
-            this.city = city;
-            this.telephones = tel;
-            this.typeOfDocument = doc;
-            this.identification = ident;
-        }
+        [Required]
+        public string Address { get; set; }
+              
+        [Required]
+        public DocumentType Document { get; set; }
+
+        [Required]
+        public long Identification { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string Telephones { get; set; }
+
+        [Required]
+        public string EmailAddresses { get; set; }
+
+      
 
         #endregion
 
         #region Methods
 
-        public void addTelephone(long t)
+        public void Update(Activity activity, string message)
         {
-            telephones.Add(t);
-        }
-        public string printTelephones(List<long> l)
-        {
-            string value = "";
-            foreach (long o in l)
-            {
-                value += o+", ";
-            }
-            return value.Substring(0, value.Length - 2);
+            Console.WriteLine("\nTEENS/" + activity.Name + " notification: " + message + ".");
+            string body = "The activity named \"" + activity.Name + "\" has a new notification for you: " + message;
+            string title = "Activity: " + activity.Name + " Notification";
+            NotificationStrategy.sendNotification(this, title, body);
         }
 
+        public long Key()
+        {
+            return this.Identification;
+        }
+
+
+        public void setStrategy(INotificationStrategy strategy)
+        {
+            NotificationStrategy = strategy;
+        }
         #endregion
 
-        #region Overwritten methods
+        #region Overridden methods
 
         //TODO Cambiar document type ID por document type Name
         public override string ToString()
         {
-            return "\nGuardian:\nId: " + this.id +
-                "\nName: " + this.name +
-                "\nLast name: " + this.gender +
-                "\nAddress: " + this.address +
-                "\nCity: " + this.city +
-                "\nTelephones: " + printTelephones(telephones) +
-                "\nDocument type: " + this.typeOfDocument.Name +
-                "\nIdentification: " + this.identification;
+            return "\nGuardian:\nId: " + this.Id +
+                "\nName: " + this.Name +
+                "\nLast name: " + this.GenderMember +
+                "\nAddress: " + this.Address +
+                "\nCity: " + this.City +
+                "\nTelephones: " + this.Telephones +
+                "\nDocument type: " + this.Document +
+                "\nIdentification: " + this.Identification;
         }
 
         #endregion
+
 
     }
 }
