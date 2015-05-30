@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="SAGS.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="SAGS">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=sagsazure;AccountKey=AkNlAHFNtH/gJLGF5sJjObzuVp4FxQrLmzRHW8FuUk2BB61bvPun90XfKxCC2w8ET2pnNW/nw2daIQDO6Euqng==" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
