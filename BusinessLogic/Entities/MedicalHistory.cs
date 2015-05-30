@@ -45,15 +45,6 @@ namespace BusinessLogic
 
         public override string ToString()
         {
-<<<<<<< HEAD
-            return "\nMedical history:\nId: " + this.id +
-                "\nMember id: " + this.memberId +
-                "\nDiseases: " + printStringList(this.diseases) +
-                "\nMedicine intolerances: " + printStringList(this.medicineIntolerances) +
-                "\nAllergies: " + printStringList(this.allergies) +
-                "\nMedical interventions: " + printStringList(this.medicalInterventions) +
-                "\nObservations: " + this.observations;
-=======
             return "\nMedical history:\nId: " + this.Id +
                 "\nMember id: " + this.MemberId +
                 "\nDiseases: " + this.Diseases +
@@ -61,7 +52,6 @@ namespace BusinessLogic
                 "\nAllergies: " + this.Allergies +
                 "\nMedical interventions: " + this.MedicalInterventions +
                 "\nObservations: " + this.Observations;
->>>>>>> 3921ed54cdf0fbe670a3eb656a1286ea6ea2b493
         }
         
         #endregion

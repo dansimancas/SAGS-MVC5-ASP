@@ -58,7 +58,7 @@ namespace BusinessLogic
             return scoutGroupInstance;
         }
 
-        public void setScoutGroupData(string id, string name, string country, string city, string address, string sponsor)
+        /*public void setScoutGroupData(string id, string name, string country, string city, string address, string sponsor)
         {
             if (group.Id == null && group.Name == null && group.Country == null && group.City == null && group.Address == null && group.Sponsor == null)
             {
@@ -70,7 +70,7 @@ namespace BusinessLogic
                 group.Sponsor = sponsor;
             }
             
-        }
+        }*/
 
         #endregion
 

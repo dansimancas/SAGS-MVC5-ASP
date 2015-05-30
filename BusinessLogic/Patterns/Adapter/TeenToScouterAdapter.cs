@@ -10,7 +10,7 @@ namespace BusinessLogic
     {
         #region Atributes
 
-        private Teen teenInstance;
+        // Teen teenInstance;
 
         #endregion
 
@@ -24,19 +24,19 @@ namespace BusinessLogic
         public TeenToScouterAdapter(Teen t)
         {
            // teenInstance = t;
-            base.Name = t.Name;
-            base.Lastname = t.Lastname;
-            base.GenderMember = t.GenderMember;
-            base.Address = t.Address;
-            base.City = t.City;
-            base.Telephones = t.Telephones;
-            base.EmailAddresses = t.EmailAddresses;
-            base.Document = t.Document;
-            base.Identification = t.Identification;
-            base.GuardiansId = t.GuardiansId;
-            base.ScouterMedicalHistory = t.TeenMedicalHistory;
-            base.ScouterEducation = new EducationHistory();
-            base.WorkExperience = "No experience";
+            Name = t.Name;
+            Lastname = t.Lastname;
+            GenderMember = t.GenderMember;
+            Address = t.Address;
+            City = t.City;
+            Telephones = t.Telephones;
+            EmailAddresses = t.EmailAddresses;
+            Document = t.Document;
+            Identification = t.Identification;
+            GuardiansId = t.GuardiansId;
+            ScouterMedicalHistory = t.TeenMedicalHistory;
+            ScouterEducation = new EducationHistory();
+            WorkExperience = "No experience";
         }
 
 

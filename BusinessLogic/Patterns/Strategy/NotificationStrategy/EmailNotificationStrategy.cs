@@ -14,14 +14,13 @@ namespace BusinessLogic
         private string from;
         private string fromPassword;
         private string to;
-        private List<string> tos;
         private string subject;
         private string body;
 
         public void sendNotification(IMember M, string title, string message)
         {
-            this.from = Properties.Settings.Default["fromEmail"].ToString();
-            this.fromPassword = Properties.Settings.Default["fromPassword"].ToString();
+            this.from = "euforsita@gmail.com";
+            this.fromPassword = "3155496882";
             this.to = M.EmailAddresses;
             this.subject = title;
             this.body = message;

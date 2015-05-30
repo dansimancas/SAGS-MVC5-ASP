@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using BusinessLogic;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace SAGS
 {
@@ -24,31 +26,33 @@ namespace SAGS
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-/*            IEnumerable<Teen> Observers1 = db1.Teens.ToList();
-            IEnumerable<Scouter> Observers2 = db2.Scouters.ToList();
-            IEnumerable<Guardian> Observers3 = db3.Guardians.ToList();
-
             Activity activity = new Activity();
 
+            IEnumerable<Teen> Observers1 = db1.Teens.ToList();
             foreach (var item in Observers1)
             {
                 item.setStrategy(new EmailNotificationStrategy());
                 activity.RegisterObserver(item);
             }
 
+            IEnumerable<Scouter> Observers2 = db2.Scouters.ToList();
             foreach (var item in Observers2)
             {
                 item.setStrategy(new EmailNotificationStrategy());
                 activity.RegisterObserver(item);
             }
-
+            IEnumerable<Guardian> Observers3 = db3.Guardians.ToList();
             foreach (var item in Observers3)
             {
                 item.setStrategy(new EmailNotificationStrategy());
                 activity.RegisterObserver(item);
             }
-                         
-  */     
+            /*catch(Exception e) {
+                 Console.WriteLine ("In catch block of Main method.");
+                 Console.WriteLine("Caught: {0}", e.Message);
+                 if (e.InnerException != null)
+                    Console.WriteLine("Inner exception: {0}", e.InnerException);
+              }*/
         }
     }
 }
